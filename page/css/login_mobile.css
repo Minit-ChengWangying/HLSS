@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #f0f0f0;
+}
+input {
+    background-color: #EAEAEA;
+    border: 0;
+    width: 75vw;
+    height: 60px;
+    padding-left: 10px;
+    font-size: 1.3em;
+}
+input:hover {
+    outline: none;
+}
+button {
+    width: 30vw;
+    height: 50px;
+    border-radius: 20px;
+    border: 0;
+    background: #00A8FF;
+    transition: all 0.2s;
+    font-size: 1.2em;
+}
+button:focus {
+    outline: none;
+}
+.flex {
+    display: flex;
+}
+.cloumn {
+    flex-direction: column;
+}
+.container {
+    /* height: 100vh; */
+    width: 100vw;
+    align-items: center;
+}
+.container .top_container {
+    height: 100px;
+    width: 92vw;
+    background-color: #ffffff;
+    margin-top: 90px;
+    justify-content: center;
+    align-items: center;
+}
+.container .top_container div h2 {
+    font-size: 2em;
+}
+.container .login_container {
+    width: 92vw;
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 0 0 150px 0;
+    align-items: center;
+}
+.container .login_container h2 {
+    font-size: 2em;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.container .login_container input {
+    margin-top: 30px;
+}
+.container .login_container button {
+    margin-top: 22px;
+}

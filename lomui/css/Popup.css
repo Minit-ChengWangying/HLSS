@@ -1,0 +1,67 @@
+.pop_container {
+    position: fixed;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+    background-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 2s;  /* 消失动画时间 */
+    border-radius: 40px;
+    text-align: center;
+}
+.pop_container .popText {
+
+}
+
+#popup.active {
+    top: 5%;
+    visibility: visible;
+    opacity: 1;
+    transition: 1s;  /* 进入动画时间 */
+}
+/* 普通弹出层 */
+
+
+#inpopup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+    background-color: #fff;
+    visibility: hidden;  /* 设置元素可见 */
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 20px;
+    text-align: center;
+}
+#inpopup h1 {
+    margin-bottom: 0;
+}
+#inpopup #inpopupInput {
+    box-shadow: 0 0 0;
+    background-color: #fff;
+    border: 1px solid #E7E7E7;
+    width: 600px;
+}
+#inpopup .btn {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    width: 150px;
+}
+#inpopup.active {
+    top: 30%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+/* 输入弹出层 */
+

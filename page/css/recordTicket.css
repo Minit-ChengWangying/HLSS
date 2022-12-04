@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* border: 1px solid red; */
+}
+.flex {
+    display: flex;
+}
+.column {
+    flex-direction: column;
+}
+.row {
+    flex-direction: row;
+}
+input {
+    height: 4vh;
+    font-size: 14pt;
+    border: none;
+    border-bottom: 2px solid #2d3436;
+}
+input:focus {
+    outline: 0;
+}
+button {
+    width: 50%;
+    height: 50px;
+    margin-left: 25%;
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    border: none;
+    background-color: #1e90ff;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+button:focus {
+    background-color: #70a1ff;
+}
+a {
+    /* width: 94%; */
+    letter-spacing: 2px;
+    padding: 10px 20px 10px 20px;
+    /* margin-top: 20px; */
+    text-align: center;
+    margin-left: 3%; /*此方法在后续版本中优先更改*/
+    /* border: 1px solid red; */
+    background-color: #1e90ff;
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    border-radius: 8px;
+    color: #000;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f0f0;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+
+    /* display: none; */
+}
+.container .lq_logo {
+    /* flex: 1; */
+    width: 94vw;
+    background-color: #fff;
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    padding: 15px 0 15px 0;
+    margin-top: 3vh;
+    justify-content: center;
+    align-items: center;
+}
+.container .lq_logo .logo {
+    font-size: 20pt;
+}
+.container .ticket_container {
+    /* flex: 9; */
+    width: 94vw;
+    background-color: #fff;
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    margin-top: 1vh;
+    /* justify-content: center; */
+    align-items: center;
+}
+.container .ticket_container .selectItem {
+    height: 5vh;
+    font-size: 14pt;
+    border: none;
+    border-bottom: 2px solid #2d3436;
+    width: 90vw;
+    /* background-color: #ffffff; */
+}
+.container .ticket_container .selectItem:focus {
+    outline: 0;
+}
+.container .ticket_container .ticketText {
+    font-size: 18pt;
+    letter-spacing: 3pt;
+    margin-top: 2vh;
+    /* height: 60px; */
+    /* border: 1px solid red; */
+}
+.container .ticket_container .ticketContent {
+    width: 96%;
+    height: 80vh;
+    /* border: 1px solid red; */
+    
+}
+.container .ticket_container .ticketContent div {
+    /* border: 1px solid red; */
+    font-size: 16pt;
+    margin-top: 2vh;
+}
+.container .ticket_container .fast {
+    /* border: 1px solid red; */
+    padding-top: 10px;
+}
+.container .ticket_container .fast h2 {
+    /* margin-bottom: 10px; */
+}
+.container .bottom {
+    height: 20px;
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.loading {
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    text-align: center;
+    width: 94vw;
+    /* border: 1px solid red; */
+
+    display: none;
+}

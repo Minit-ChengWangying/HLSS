@@ -1,0 +1,80 @@
+body {   /* #f0f0f0是迷小的官方指定默认颜色 */
+    background-color: #f0f0f0;
+}
+input {
+    width: 345px;
+    height: 40px;
+    background-color: #F5F5F5;
+    border: 0;
+    border-radius: 8px;
+    font-size: 15px;
+    /* padding-left: 15px; */
+    transition: all 0.3s;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+    outline: 0;
+}
+#dycInput:focus {
+    outline: 0;
+    animation-name: btnfocus;
+    animation-duration: 0.5s;
+}
+#dycInput:hover {
+    transform: scale(1.1,1.3);
+    /* 第一个数表示x轴的缩放，第二个数表示y轴的缩放，如果两个数一样，可以用一个数代替 */
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+}
+/* 输入框 */
+
+button {
+    width: 200px;
+    height: 40px;
+    background-color: #215AE5;
+    border: 0;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    letter-spacing: 3px;
+}
+button:hover {
+    cursor: pointer;
+}
+#dycButton:hover {
+    transform: scale(1.2,1.2);
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+}
+#dycButton.active {
+    transform: scale(1.1,1.1);  /* button点击缩放比例 */
+}
+
+#dycButton.active {
+    transform: scale(1,1.2);  /* input表单点击缩放比例 */
+}
+
+.minit_typetext {
+    width: 600px;
+    height: 200px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 2px 6px 7px rgba(79 ,79 ,79 ,.30);
+    border-radius: 20px;
+}
+.minit_typetext .minit_typetext_title {
+    width: 95%;
+    margin-left: 2.5%;
+    height: 60px;
+    /* background-color: #0fbcf9; */
+    border-bottom: 2px solid #000;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.minit_typetext .minit_typetext_body {
+    width: 95%;
+    height: 50px;
+    margin-left: 2.5%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}

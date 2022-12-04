@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #f0f0f0;
+}
+.flex {
+    display: flex;
+}
+.cloumn {
+    flex-direction: column;
+}
+.minit-container {
+    margin-top: 15px;
+    width: 100vw;
+    /* align-items: center; */
+    justify-content: center;
+}
+.minit-container .left-container {
+    width: 68vw;
+    /* height: 400px; */
+    background-color: #fff;
+    margin-right: 1vw;
+}
+.minit-container .right-container {
+    width: 27vw;
+    /* height: 400px; */
+    background-color: #fff;
+}
+.minit-container .left-container .left-bottom-container {
+    height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.minit-container .left-container .ticket-container {
+    /* height: 200px; */
+    padding-left: 20px;
+    /* border: 1px solid red; */
+}
+.minit-container .left-container .ticket-container .ticket-information-container {
+    /* border: 1px solid red; */
+    width: 95%;
+    padding: 20px 0 20px 0;
+    overflow: hidden;
+    justify-content: center;
+}
+.minit-container .left-container .ticket-information-container a{
+    font-size: 1.2em;
+    /* display: flex;
+    align-items: center;
+    margin-left: 20px; */
+    white-space: nowrap;
+}
+.minit-container .left-container .ticket-information-container span{
+    font-size: 3em;
+    /* display: flex;
+    align-items: center;
+    margin-left: 4px; */
+    cursor: default;
+}
+.minit-container .left-container .ticket-information-container .ticket-number-container .ticket-number-a-container {
+    /* border: 1px solid red; */
+    text-align: center;
+    margin-left: 40px;
+}
+.minit-container .left-container .ticket-container h2 {
+    font-size: 2em;
+    margin-top: 10px;
+    cursor: default;
+}
+.minit-container .left-container .union-container {
+    margin-top: 10px;
+}
+.minit-container .left-container .union-container h2 {
+    font-size: 2em;
+    margin-left: 20px;
+    cursor: default;
+}
+.minit-container .left-container .union-container .union-class-container {
+    margin: 10px 0 0 20px;
+}
+.minit-container .left-container .union-container .union-class-container button {
+    margin-left: 15px;
+}
+.minit-container .left-container .union-container .union-score-container {
+    /* width: 90%; */
+    padding-left: 20px;
+}
+.minit-container .left-container .union-container .union-score-container .unionTable {
+    width: 90%;
+}
+.minit-container .left-bottom-container {
+    justify-content: center;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+.right-container .right-title-container {
+    align-items: flex-end;
+    cursor: default;
+}
+.right-container .right-title-container h2 {
+    font-size: 2em;
+    margin: 10px 0 0 15px;
+}
+.right-container .right-title-container .updateTime {
+    margin-left: 10px;
+}
+.right-container .right-class-container {
+    padding: 10px 20px 0 20px;
+}
+.right-container .right-class-container .right-classinformation-container div{
+    width: 50%;
+    font-size: 1.5em;
+    overflow: hidden;
+}
+.right-container .right-title-container h2 {
+    white-space: nowrap;
+}
+.right-container .right-title-container p {
+    white-space: nowrap;
+}
+.right-container .right-class-container .right-classinformation-container .classNumber .Rank {
+    font-size: 0.8em;
+    padding: 5px 5px 5px 5px;
+    background-color: #c8d6e5;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+.right-container .right-class-container .right-classinformation-container .Score {
+    /* border: 1px solid red; */
+    text-align: right;
+}
+
+

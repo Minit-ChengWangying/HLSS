@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #f0f0f0;
+}
+input {
+    background-color: #EAEAEA;
+    border: 0;
+    width: 75%;
+    height: 6vh;
+    padding-left: 10px;
+    font-size: 1.3em;
+}
+input:hover {
+    outline: none;
+}
+button {
+    width: 30%;
+    height: 45px;
+    border-radius: 15px;
+    border: 0;
+    background: #00A8FF;
+    transition: all 0.2s;
+    font-size: 1.3em;
+    white-space: nowrap;  /* 禁止文字换行 */
+}
+button:hover {
+    cursor: pointer;
+}
+button:focus {
+    /* outline: 1; */
+}
+.flex {
+    display: flex;
+}
+.cloumn {
+    flex-direction: column;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+}
+.container .top_container {
+    /* width: 35vw; */
+    background-color: #ffffff;
+    padding: 15px 70px 15px 70px;
+    margin-top: 15vh;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+.container .top_container div {
+    font-size: 1.5em;
+}
+.container .login_container {
+    width: 500px;
+    background-color: #ffffff;
+    margin-top: 3vh;
+    padding-top: 2vh;
+    padding-bottom: 6vh;
+    align-items: center;
+}
+.container .login_container input {
+    margin-top: 1.9vh;
+}
+.container .login_container button {
+    margin-top: 20px;
+}

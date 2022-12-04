@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #f0f0f0;
+    align-items: center;
+}
+button {
+    width: 94%;
+    margin-top: 10px;
+    height: 40px;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 8px;
+}
+.flex {
+    display: flex;
+}
+.cloumn {
+    flex-direction: column;
+}
+.quickAccess {
+    width: 94%;
+    /* border: 1px solid red; */
+    /* align-items: center; */
+}
+.quickAccess div {
+    width: 100%;
+    /* border: 1px solid blue; */
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 5px 0 5px 0;
+    border-radius: 8px;
+}
+.quickAccess div h2 {
+    /* border: 1px solid gold; */
+    width: 100%;
+    text-align: center;
+}
+.ticket_container {
+    width: 94%;
+    padding: 10px 0 10px 0;
+    font-size: 1.5em;
+    /* border: 1px solid red; */
+    align-items: center;
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    border-radius: 9px;
+    /* display: none; */
+}
+.ticket_container .ticket {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-left: 20px;
+}
+.ticket_container .ticket .studentName {
+    font-size: 2em;
+}
+.bottom {
+    width: 100%;
+    height: 30px;
+}
+
+.loading {
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    text-align: center;
+    width: 94vw;
+    /* border: 1px solid red; */
+    margin-top: 250px;
+    display: none;
+}
+

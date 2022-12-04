@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* @keyframes animationAppears {
+    0% {
+        margin-top: 5px;
+    }
+    50% {
+        margin-top: 10px;
+    }
+    75% {
+        margin-top: 13px;
+    }
+    82.5% {
+        margin-top: 15px;
+    }
+    92.5% {
+        margin-top: 17px;
+    }
+    100% {
+        margin-top: 20px;
+    }
+} */
+
+.minit-popup-container {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px 80px 15px 80px;
+    position: absolute;
+    display: flex;
+    left:50%;
+    top: -999px;
+    transform: translate(-50%, 0);
+    z-index: 999;
+    box-shadow: 2px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    transition: all 2s;
+    /* animation-duration: 2s;
+    animation-name: animationAppears; */
+    justify-content: center;
+    align-items: center;
+}
+.minit-popup-container .minit-icon {
+    font-size: 4em;
+    /* border: 1px solid red; */
+}
+
+
