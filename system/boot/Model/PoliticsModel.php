@@ -17,6 +17,36 @@ class PoliticsModel {
     }
     /**
      * Author: WangMaixin
+     * Version: 202212042139
+     * @return 学期罚单详细信息
+     */
+    public static function queryTickets() {
+        self::$Sql = 'SELECT * FROM tickets;';
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Author: WangMaixin
+     * Version: 202212042150
+     * @return 本周重大违纪罚单
+     */
+    public static function queryWeekMajorTickets() {
+        self::$Sql = 'SELECT * FROM week where tickettype = "major";';
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Author: WangMaixin
+     * Version: 202212042150
+     * @return 学期重大违纪罚单
+     */
+    public static function queryMajorTickets() {
+        self::$Sql = 'SELECT * FROM tickets where tickettype = "major";';
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Author: WangMaixin
      * Version: 202211242141
      * @return 新增罚单数
      */

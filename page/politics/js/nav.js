@@ -8,7 +8,7 @@ function tickets() {;
     document.getElementById('left-container').style.display = "none";
     document.getElementById('right-container').style.display = "none";
     document.getElementById('ticketContent-container').style.display = "flex";
-    ticketModule();
+    getTicketSelect();
 }
 function unionstudent() {
     document.getElementById('left-container').style.display = "none";

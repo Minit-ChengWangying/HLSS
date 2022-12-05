@@ -14,7 +14,22 @@ class PoliticsController extends Controller {
     public function ticket() {
         self::run('politics');
         sleep(1);   # 生产环境删去
-        PoliticsView::get();
+        PoliticsView::getWeekTicket();
+    }
+    public function tickets() {
+        self::run('politics');
+        sleep(1);   # 生产环境删去
+        PoliticsView::getTicekts();
+    }
+    public function weekMajorTickets() {
+        self::run('politics');
+        sleep(1);   # 生产环境删去
+        PoliticsView::getWeekMajorTicekts();
+    }
+    public function majorTickets() {
+        self::run('politics');
+        sleep(1);   # 生产环境删去
+        PoliticsView::getMajorTicekts();
     }
     public function number() {
         self::run('politics');

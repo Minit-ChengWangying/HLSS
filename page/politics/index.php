@@ -69,9 +69,10 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
                 </div>
                 <div class="tickets-container flex cloumn shadow">
                     <form action="" lay-verify="" class="layui-form minit-select">
-                        <select id="" lay-filter="ticketModule" name="quiz1" class="">
+                        <select id="ticketSelect" lay-filter="ticketModule" name="quiz1" class="">
                             <option value="week" selected>本周罚单</option>
                             <option value="semester">学期罚单</option>
+                            <option value="majorWeek">本周重大违纪罚单</option>
                             <option value="major">重大违纪罚单</option>
                         </select>
                     </form>
