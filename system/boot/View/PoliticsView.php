@@ -32,5 +32,9 @@ class PoliticsView {
         self::$arrayRow = mysqli_fetch_all(PoliticsModel::queryMajorTickets(), MYSQLI_ASSOC);
         echo json_encode(array("error"=>0, "data" => self::$arrayRow));
     }
+    public static function getFuzzyQuery($queryCriteria,$queryInfo) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::fuzzyQuery($queryCriteria,$queryInfo), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
 }
 ?>

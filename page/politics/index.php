@@ -64,8 +64,19 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
             <!-- 罚单 -->
             <div class="ticketContent-container flex cloumn" id="ticketContent-container">
                 <div class="search-container flex">
-                    <input type="text" name="title" required  lay-verify="required" placeholder="输入信息以查询罚单" autocomplete="off" class="layui-input minit-search shadow">
-                    <button class="layui-btn minit-button shadow" lay-submit lay-filter="formDemo">查询</button>
+                    <input type="text" name="title" required  lay-verify="required" placeholder="输入信息以查询罚单" autocomplete="off" id="ticketModuleSearchFrame" class="layui-input minit-search flex shadow">
+                    <div class="ticket-search-select-container flex">
+                        <form action="" lay-verify="" class="layui-form minit-search-select">
+                            <select id="ticketSearchSelect" lay-filter="ticketModuleSearch" name="quiz1" class="searchSelect">
+                                <option value="">请选择一个查询条件</option>
+                                <option value="StudentName" selected>学生姓名</option>
+                                <option value="TextReason">罚单原因</option>
+                                <option value="TeacherName">开单教师</option>
+                                <option value="Class">开单班级</option>
+                            </select>
+                        </form>   
+                    </div>
+                    <button class="layui-btn minit-button shadow" lay-submit lay-filter="formDemo" onclick="ticketModuleSearch();">查询</button>
                 </div>
                 <div class="tickets-container flex cloumn shadow">
                     <form action="" lay-verify="" class="layui-form minit-select">

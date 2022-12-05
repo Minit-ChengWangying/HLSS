@@ -281,3 +281,51 @@ function getTicketSelect() {
         majorticketsModule();
     }
 }
+// Search
+function ticketModuleSearch() {
+    var criteria = $("#ticketSearchSelect option:selected");
+    var info = document.getElementById('ticketModuleSearchFrame').value;
+    var list = document.getElementById('ticketList');
+    console.log(criteria);
+    console.log(info);
+    if (info == '') {
+        alert('请输入查询内容!');
+        throw SyntaxError('Please enter the query content!');
+    }
+    $.ajax({
+        type:"get",
+        url:"../../system/hlss.php",
+        data:{"p":"politics/fuzzy","criteria":criteria.val(),"info":info},
+        beforeSend:function(XMLHttpRequest){
+            loadPopupAppear();
+        },
+        success:function(data) {
+            var dataArr = JSON.parse(data).data;
+            var arrayHTML = "";
+            var Time = "";
+            for(var i=0;i<dataArr.length;i++) {
+                var Type = "普通罚单";
+                // 时间戳转换
+                Time = new Date(parseInt(dataArr[i].Time)*1000).toLocaleString().replace(/:\d{1,2}$/,'');
+                if(dataArr[i].tickettype == 'major') {
+                    Type = '重大违纪罚单';
+                }
+                arrayHTML += `<tr>`;
+                arrayHTML += `<td>${dataArr[i].StudentName}</td>`;
+                arrayHTML += `<td>${dataArr[i].TextReason}</td>`;
+                arrayHTML += `<td>${dataArr[i].TeacherName}</td>`;
+                arrayHTML += `<td>${dataArr[i].Class}</td>`;
+                arrayHTML += `<td>${dataArr[i].DeductPoints}</td>`;
+                arrayHTML += `<td>${Time}</td>`;
+                arrayHTML += `<td>${dataArr[i].ticketNumber}</td>`;
+                arrayHTML += `<td>${Type}</td>`;
+                arrayHTML += `</tr>`;
+            }
+            list.innerHTML = arrayHTML;
+            popupDisappear();
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            popupDisappear();
+        }
+    });
+}

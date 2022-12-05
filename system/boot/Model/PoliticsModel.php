@@ -106,6 +106,16 @@ class PoliticsModel {
         return self::$queryResult['count(*)'];
     }
     /**
+     * Version: 202212051531
+     * @return 模糊查询
+     */
+    public static function fuzzyQuery($queryCriteria,$queryInfo) {
+        // $queryCriteria,$queryInfo
+        self::$Sql = "SELECT * FROM tickets WHERE $queryCriteria LIKE '%$queryInfo%';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
      * Author: WangMaixin
      * Version: 202212031520
      * @param 数据库连接信息
@@ -114,5 +124,6 @@ class PoliticsModel {
         return MySQL::connect();
     }
 }
+
 
 ?>

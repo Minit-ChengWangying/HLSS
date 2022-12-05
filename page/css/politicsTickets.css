@@ -15,11 +15,22 @@
     /* border: 1px solid red; */
     width: 60%;
     margin-top: 50px;
+    /* justify-content: center; */
 }
 .minit-container .ticketContent-container .search-container .minit-search {
     margin-right: 20px;
     padding: 25px 20px 20px 25px;
     font-size: 17px;
+}
+.minit-container .ticketContent-container .search-container .minit-searc-select .searchSelect dl{
+    height: 60px;
+}
+.minit-container .ticketContent-container .search-container .ticket-search-select-container {
+    /* font-size: 17px; */
+    /* height: 100%; */
+    /* border: 1px solid red; */
+    margin: auto 0;
+    margin-right: 20px;
 }
 .minit-container .ticketContent-container .search-container .minit-button {
     font-size: 17px;
