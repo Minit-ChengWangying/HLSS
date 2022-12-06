@@ -13,6 +13,9 @@ body {
     background-color: #f0f0f0;
     padding-top: 30px;
 }
+button {
+    color: #000;
+}
 a {
     text-align: center;
     padding: 15px 0 15px 0;

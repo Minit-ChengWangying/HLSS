@@ -24,6 +24,7 @@ button {
     background: #00A8FF;
     transition: all 0.2s;
     font-size: 1.2em;
+    color: #000;
 }
 button:focus {
     outline: none;

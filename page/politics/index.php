@@ -39,14 +39,15 @@ $a = 1;
         <link rel="stylesheet" href="../config/index.css">
         <link rel="stylesheet" href="../css/politicsTickets.css">
         <link rel="stylesheet" href="../config/minitPopup.css">
+        <link rel="stylesheet" href="../css/politicsUnion.css">
     </head>
     <body>
         <div class="minit-popup-container" id="minitPopUp"></div>
         <!-- 顶部导航栏 -->
         <ul class="layui-nav">
-            <li class="layui-nav-item layui-this" onclick="consolediv();"><a href="javascript:;">控制台</a></li>
-            <li class="layui-nav-item" onclick="tickets();"><a href="javascript:;">罚单<span class="layui-badge" id="newTicketSpan"></span></a></li>
-            <li class="layui-nav-item" onclick="unionstudent();"><a href="javascript:;">学生会</a></li>
+            <li class="layui-nav-item" id="consolemodule" onclick="consolemodule();"><a href="javascript:;">控制台</a></li>
+            <li class="layui-nav-item" id="tickets" onclick="tickets();"><a href="javascript:;">罚单<span class="layui-badge" id="newTicketSpan"></span></a></li>
+            <li class="layui-nav-item" id="unionstudent" onclick="unionstudent();"><a href="javascript:;">学生会</a></li>
             <li class="layui-nav-item" onclick="sleep();"><a href="javascript:;">寝室</a></li>
             <li class="layui-nav-item" onclick="bonuspoints();"><a href="javascript:;">加分</a></li>
             <li class="layui-nav-item" onclick="classdetails();"><a href="javascript:;">班级详情</a></li>
@@ -61,6 +62,86 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
         </ul>
         <!-- 内容 -->
         <div class="minit-container flex" id="content-container">
+            <!-- 学生会 -->
+            <div class="unionContent-container flex cloumn shadow" id="unionContent-container">
+                <h2 class="unionTitle">学生会班级分数</h2>
+                <div class="union-title-container flex">
+                    <form action="" lay-verify="" class="layui-form union-item-form">
+                        <select id="unionItemSelect" lay-filter="unionItemSelect" name="quiz1"  lay-search="" class="unionItem">
+                            <option value="NULL">请选择班级</option>
+                                    <?php
+                                        echo '<option value=' . $firstClass . ' selected>' . $firstClass . '</option>';
+                                        foreach ($rows as $row) {
+                                            echo '<option value=' . $row['Class'] . '>' . $row['Class'] . '</option>';
+                                        }
+                                    ?>
+                        </select>
+                    </form>   
+                    <button class="layui-btn unionQueryButton" lay-submit lay-filter="formDemo" onclick="unionModuleQuery();">查询</button>
+                </div>
+                <div class="unionModule-score-container flex cloumn">
+                    <p class="unionModuleScoreTitle">学生会体育部分数详情</p>
+                    <table class="layui-table unionModuleTable">
+                        <thead>
+                            <tr>
+                                <th>旗手</th>
+                                <th>队列</th>
+                                <th>口号</th>
+                                <th>总分</th>
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="moduleStandardBearer">NULL</td>
+                                <td id="moduleQueue">NULL</td>
+                                <td id="moduleSlogan">NULL</td>
+                                <td id="modulesportScore">NULL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="unionModule-score-container flex cloumn">
+                <p class="unionModuleScoreTitle">学生会卫生部分数详情</p>
+                    <table class="layui-table unionModuleTable">
+                        <thead>
+                            <tr>
+                                <th>清洁区</th>
+                                <th>教室</th>
+                                <th>总分</th>
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="modulearea">NULL</td>
+                                <td id="moduleclass">NULL</td>
+                                <td id="modulehygieneScore">NULL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="unionModule-reason-container flex cloumn">
+                    <p class="unionModuleScoreTitle">学生会体育部班级扣分详情</p>
+                    <div class="unionModule-item-reason-container flex cloumn" id="unionModuleSportReason">
+                        <div class="unionModule-log-rason-container flex">
+                            <p>班级:<span id="unionModuleSportReasonClass">126</span></p>
+                            <p>扣分原因:<span id="unionModuleSportReasonText">步伐不齐</span></p>
+                            <p>扣分时间:<span id="unionModuleSportReasonTime">2022/12/5 22:53</span></p>
+                            <p>扣除分数:<span id="unionModuleSportReasonPoints">5</span></p>
+                        </div>
+                    </div>
+                    <p class="unionModuleScoreTitle unionModuleTitle">学生会卫生部班级扣分详情</p>
+                    <div class="unionModule-item-reason-container flex cloumn"  id="unionModuleHygieneReason">
+                        <div class="unionModule-log-rason-container flex">
+                            <p>班级:<span id="unionModuleHygieneReasonClass">126</span></p>
+                            <p>扣分原因:<span id="unionModuleHygieneReasonText">步伐不齐</span></p>
+                            <p>扣分时间:<span id="unionModuleHygieneReasonTime">2022/12/5 22:53</span></p>
+                            <p>扣除分数:<span id="unionModuleHygieneReasonPoints">5</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="unionModuleButtom flex"></div>
+            </div>
+
             <!-- 罚单 -->
             <div class="ticketContent-container flex cloumn" id="ticketContent-container">
                 <div class="search-container flex">
@@ -68,7 +149,7 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
                     <div class="ticket-search-select-container flex">
                         <form action="" lay-verify="" class="layui-form minit-search-select">
                             <select id="ticketSearchSelect" lay-filter="ticketModuleSearch" name="quiz1" class="searchSelect">
-                                <option value="">请选择一个查询条件</option>
+                                <option value="NULL">请选择一个查询条件</option>
                                 <option value="StudentName" selected>学生姓名</option>
                                 <option value="TextReason">罚单原因</option>
                                 <option value="TeacherName">开单教师</option>
@@ -155,7 +236,7 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
                         <div class="union-class-container flex">
                             <form action="" class="layui-form unionClassSelect">
                                 <select id="sportUnionSelect" name="quiz1" class="" lay-search="">
-                                    <option value="">请选择班级</option>
+                                    <option value="NULL">请选择班级</option>
                                     <?php
                                         echo '<option value=' . $firstClass . ' selected>' . $firstClass . '</option>';
                                         foreach ($rows as $row) {
@@ -199,7 +280,7 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
                         <div class="union-class-container flex">
                             <form action="" class="layui-form unionClassSelect">
                             <select id="hygieneUnionSelect" name="quiz1" class="" lay-search="">
-                                    <option value="">请选择班级</option>
+                                    <option value="NULL">请选择班级</option>
                                     <?php
                                         echo '<option value=' . $firstClass . ' selected>' . $firstClass . '</option>';
                                         foreach ($rows as $row) {
@@ -275,9 +356,17 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
         <script>
             // 禁止X轴滚动条
             document.body.parentNode.style.overflowX = "hidden";
-            number();
-            sport();
-            hygiene();
+            // 获取GET值
+            function getUrlParam(paramName){
+                var reg = new RegExp("(^|&)"+ paramName +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r!=null) return unescape(r[2]);
+                return null;
+            }
+            var param = getUrlParam('page');
+            document.getElementById(param).className = 'layui-nav-item layui-this';
+            eval(param + '()');
+
             layui.use('element', function(){
                 var element = layui.element;
 

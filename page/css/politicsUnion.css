@@ -1,0 +1,52 @@
+.minit-container .left-container {
+    /* display: none; */
+}
+.minit-container .right-container {
+    /* display: none; */
+}
+.unionContent-container {
+    width: 98vw;
+    background-color: #fff;
+    padding: 14px 0 0 15px;
+    display: none;
+}
+.unionContent-container .unionTitle {
+    font-size: 2em;
+    margin-bottom: 10px;
+    cursor: default;
+}
+.unionContent-container .union-title-container {
+    margin-bottom: 10px;
+}
+.unionContent-container .union-title-container .union-item-form {
+    margin-right: 15px;
+}
+.unionContent-container .unionModule-score-container {
+    /* margin-top: 0; */
+    width: 98%;
+}
+.unionContent-container .unionModule-score-container .unionModuleTable {
+    margin-top: 0;
+}
+.unionContent-container .unionModuleScoreTitle {
+    font-size: 1.4em;
+    margin: 0 0 7px 10px;
+}
+.unionContent-container .unionModule-reason-container {
+    width: 98%;
+}
+.unionContent-container .unionModule-reason-container .unionModuleTitle {
+    margin-top:  10px;
+}
+.unionContent-container .unionModule-reason-container .unionModule-item-reason-container {
+    width: 100%;
+    background-color: #eee;
+    padding: 10px 0 10px 0;
+}
+.unionContent-container .unionModule-reason-container .unionModule-item-reason-container .unionModule-log-rason-container p{
+    margin: 6px 0 0 15px;
+    font-size: 1.1em;
+}
+.unionContent-container .unionModuleButtom {
+    height: 30px;
+}

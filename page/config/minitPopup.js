@@ -10,7 +10,6 @@ function popupAppear() {
     popup.style.top = '20px';
     return 'Minit LomUI,Make animation with heart.';
 }
-popupAppear();
 function popupDisappear() {
     popup.style.top = '-999px';
     // popup.innerHTML = '';
@@ -31,5 +30,13 @@ function loadDisappear() {
 function errorPopupApper() {
     popup.innerHTML = '<div class="flex cloumn" style="text-align: center;"><i class="layui-icon layui-icon-close-fill" style="font-size: 4em;color: red;"></i><h2 class="">未知错误</h2></div>';
     popup.style.top = '20px';
+    return 'Minit LomUI,Make animation with heart.';
+}
+function timeErrorPopup() {
+    popup.innerHTML = '<div class="flex cloumn" style="text-align: center;"><i class="layui-icon layui-icon-close-fill" style="font-size: 4em;color: red;"></i><h2 class="">未知错误</h2></div>';
+    popup.style.top = '20px';
+    setTimeout(function() {
+        popup.style.top = '-999px'; 
+    },3000);
     return 'Minit LomUI,Make animation with heart.';
 }

@@ -35,6 +35,16 @@ class PoliticsController extends Controller {
         $queryInfo = $_GET['info'];
         PoliticsView::getFuzzyQuery($queryCriteria,$queryInfo);
     }
+    public function sportReason() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::getUnionSportReason($Class);
+    }
+    public function hygieneReason() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::getUnionhygieneReason($Class);
+    }
 }
 
 ?>

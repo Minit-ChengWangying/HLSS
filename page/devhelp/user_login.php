@@ -19,7 +19,7 @@ class user_login {
      */
     public function  __construct() {
         if (!isset($_SESSION['loginState'])) {
-            echo "<script>alert('登录状态失效,请重新登录！');location.href='http://192.168.10.8:6230';</script>";
+            echo "<script>alert('登录状态失效,请重新登录！');location.href='http://5j4a135711.zicp.vip';</script>";
             die('Login Error!');
         }
     }

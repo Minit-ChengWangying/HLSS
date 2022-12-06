@@ -1,7 +1,7 @@
 // Login
 function Quit() {
     var popup = confirm('是否退出当前账户');
-    if (popup == false) {
+    if (popup == true) {
         $.ajax({
             type:"get",
             url:"../../system/module/Account/quit.php",
@@ -18,7 +18,14 @@ function Quit() {
 function sport() {
     var sportOptions = $("#sportUnionSelect option:selected");
     var hygieneOptions = $("#hygieneUnionSelect option:selected");
-    // alert(sportOptions.val());
+    if(sportOptions.val() == 'NULL') {
+        alert('请选择一个班级!');
+        throw SyntaxError('Please select a class!');
+    }
+    if(hygieneOptions.val() == 'NULL') {
+        timeErrorPopup();
+        throw SyntaxError('unknown error');
+    }
 
     var StandardBearer = document.getElementById('StandardBearer');
     var Queue = document.getElementById('Queue');
@@ -43,7 +50,15 @@ function sport() {
 function hygiene() {
     var sportOptions = $("#sportUnionSelect option:selected");
     var hygieneOptions = $("#hygieneUnionSelect option:selected");
-    // alert(hygieneOptions.val());
+    // console.log(sportOptions.val());
+    if(hygieneOptions.val() == 'NULL') {
+        alert('请选择一个班级!');
+        throw SyntaxError('Please select a class!');
+    }
+    if(sportOptions.val() == 'NULL') {
+        timeErrorPopup();
+        throw SyntaxError('unknown error');
+    }
 
     var area = document.getElementById('area');
     var classnumber = document.getElementById('class');
@@ -286,8 +301,10 @@ function ticketModuleSearch() {
     var criteria = $("#ticketSearchSelect option:selected");
     var info = document.getElementById('ticketModuleSearchFrame').value;
     var list = document.getElementById('ticketList');
-    console.log(criteria);
-    console.log(info);
+    if(criteria.val() == 'NULL') {
+        alert('请选择一个查询条件!');
+        throw SyntaxError('Please select a query criteria!');
+    }
     if (info == '') {
         alert('请输入查询内容!');
         throw SyntaxError('Please enter the query content!');
@@ -326,6 +343,102 @@ function ticketModuleSearch() {
         },
         error:function(XMLHttpRequest, textStatus, errorThrown) {
             popupDisappear();
+        }
+    });
+}
+function unionModuleQuery() {
+    var unionSelectVal = $('#unionItemSelect option:selected').val();
+    if(unionSelectVal == 'NULL') {
+        alert('请选择一个班级!');
+        throw SyntaxError('Please select a class!');
+    }
+    var sportList = document.getElementById('unionModuleSportReason');
+    var hygieneList = document.getElementById('unionModuleHygieneReason');
+    var StandardBearer = document.getElementById('moduleStandardBearer');
+    var Queue = document.getElementById('moduleQueue');
+    var Slogan = document.getElementById('moduleSlogan');
+    var sportScore = document.getElementById('modulesportScore');
+    var area = document.getElementById('modulearea');
+    var classnumber = document.getElementById('moduleclass');
+    var hygieneScore = document.getElementById('modulehygieneScore');
+    // Union Student Score
+    $.ajax({
+        type:"get",
+        url:"../../system/module/Politics/unionScore.php",
+        data:{'sportclass':unionSelectVal,'hygieneclass':unionSelectVal},
+        beforeSend:function(XMLHttpRequest){
+            loadPopupAppear();
+        },
+        success:function(Info) {
+            var Info = JSON.parse(Info);
+            console.log(Info);
+            StandardBearer.innerHTML = Info['StandardBearer'];
+            Queue.innerHTML = Info['Queue'];
+            Slogan.innerHTML = Info['Slogan'];
+            sportScore.innerHTML = Info['SportScore'];
+            area.innerHTML = Info['Area'];
+            classnumber.innerHTML = Info['Classroom'];
+            hygieneScore.innerHTML = Info['HyigeneScore'];
+        }
+    });
+    // Sport Reason
+    $.ajax({
+        type:"get",
+        url:"../../system/hlss.php",
+        data:{"p":"politics/sportReason","class":unionSelectVal},
+        success:function(data) {
+            var dataArr = JSON.parse(data).data;
+            var arrayHTML = "";
+            var Time = "";
+            for(var i=0;i<dataArr.length;i++) {
+                var Type = "普通罚单";
+                // 时间戳转换
+                Time = new Date(parseInt(dataArr[i].Time)*1000).toLocaleString().replace(/:\d{1,2}$/,'');
+                if(dataArr[i].tickettype == 'major') {
+                    Type = '重大违纪罚单';
+                }
+                arrayHTML += `<div class="unionModule-log-rason-container flex">`;
+                arrayHTML += `<p>班级:<span id="unionModuleSportReasonClass">${dataArr[i].Class}</span></p>`;
+                arrayHTML += `<p>扣分原因:<span id="unionModuleSportReasonText">${dataArr[i].TextReason}</span></p>`;
+                arrayHTML += `<p>扣分时间:<span id="unionModuleSportReasonTime">${Time}</span></p>`;
+                arrayHTML += `<p>扣除分数:<span id="unionModuleSportReasonPoints">${dataArr[i].Point}</span></p>`;
+                arrayHTML += `</div>`;
+            }
+            sportList.innerHTML = arrayHTML;
+            // popupDisappear();
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            // popupDisappear();
+        }
+    });
+    // Hygiene Reason
+    $.ajax({
+        type:"get",
+        url:"../../system/hlss.php",
+        data:{"p":"politics/hygieneReason","class":unionSelectVal},
+        success:function(data) {
+            var dataArr = JSON.parse(data).data;
+            var arrayHTML = "";
+            var Time = "";
+            for(var i=0;i<dataArr.length;i++) {
+                var Type = "普通罚单";
+                // 时间戳转换
+                Time = new Date(parseInt(dataArr[i].Time)*1000).toLocaleString().replace(/:\d{1,2}$/,'');
+                if(dataArr[i].tickettype == 'major') {
+                    Type = '重大违纪罚单';
+                }
+                arrayHTML += `<div class="unionModule-log-rason-container flex">`;
+                arrayHTML += `<p>班级:<span id="unionModuleSportReasonClass">${dataArr[i].Class}</span></p>`;
+                arrayHTML += `<p>扣分原因:<span id="unionModuleSportReasonText">${dataArr[i].TextReason}</span></p>`;
+                arrayHTML += `<p>扣分时间:<span id="unionModuleSportReasonTime">${Time}</span></p>`;
+                arrayHTML += `<p>扣除分数:<span id="unionModuleSportReasonPoints">${dataArr[i].Point}</span></p>`;
+                arrayHTML += `</div>`;
+            }
+            hygieneList.innerHTML = arrayHTML;
+            loadDisappear();
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            loadDisappear();
         }
     });
 }

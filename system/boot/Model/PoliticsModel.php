@@ -110,8 +110,25 @@ class PoliticsModel {
      * @return 模糊查询
      */
     public static function fuzzyQuery($queryCriteria,$queryInfo) {
-        // $queryCriteria,$queryInfo
         self::$Sql = "SELECT * FROM tickets WHERE $queryCriteria LIKE '%$queryInfo%';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212060955
+     * @return 学生会体育部扣分原因
+     */
+    public static function unionSportReason($Class) {
+        self::$Sql = "SELECT * FROM unionsport_reason WHERE Class = '$Class';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212060955
+     * @return 学生会卫生部扣分原因
+     */
+    public static function unionHygieneReason($Class) {
+        self::$Sql = "SELECT * FROM unionhygene_reason WHERE Class = '$Class';";
         self::$queryResult = self::db()->query(self::$Sql);
         return self::$queryResult;
     }

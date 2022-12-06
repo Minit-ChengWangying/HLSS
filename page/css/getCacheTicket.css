@@ -13,6 +13,7 @@ button {
     font-size: 0.8em;
     border: none;
     border-radius: 8px;
+    color: #000;
 }
 .flex {
     display: flex;

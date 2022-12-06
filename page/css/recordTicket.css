@@ -30,6 +30,7 @@ button {
     background-color: #1e90ff;
     border-radius: 5px;
     font-size: 1.1em;
+    color: #000;
 }
 button:focus {
     background-color: #70a1ff;

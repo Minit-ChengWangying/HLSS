@@ -36,5 +36,13 @@ class PoliticsView {
         self::$arrayRow = mysqli_fetch_all(PoliticsModel::fuzzyQuery($queryCriteria,$queryInfo), MYSQLI_ASSOC);
         echo json_encode(array("error"=>0, "data" => self::$arrayRow));
     }
+    public static function getUnionSportReason($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::unionSportReason($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function getUnionHygieneReason($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::unionHygieneReason($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
 }
 ?>
