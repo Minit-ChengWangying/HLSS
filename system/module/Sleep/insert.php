@@ -20,6 +20,7 @@ detectionLoginStateFunction::detectionLogin();
 $Class = $_POST['class'];
 $sleepNumber = $_POST['sleepNumber'];
 $item = $_POST['item'];
+$Type = $_POST['type'];
 $Time = time();
 
 /**
@@ -32,7 +33,7 @@ $Teacher =  detectionLoginStateFunction::getTeacherName();
 
 // good Sleep insert
 if ($item == 'good') {
-    $insertGoodSleep = "insert into goodsleep (SleepNumber,Class,Time,Teacher) VALUE ('$sleepNumber','$Class','$Time','$Teacher');";
+    $insertGoodSleep = "insert into goodsleep (SleepNumber,Class,Time,Teacher,SleepType) VALUE ('$sleepNumber','$Class','$Time','$Teacher','$Type');";
     // var_dump($insertGoodSleep);
     $insertGoodSleep_result = $db->query($insertGoodSleep);
     if (!$insertGoodSleep_result) {
@@ -56,7 +57,7 @@ if (!$selcetClass_result) {
 }
 
 // bad Sleep insert
-$insertBadSleep = "insert into badsleep (SleepNumber,Class,Time,Teacher) VALUE ('$sleepNumber','$Class','$Time','$Teacher');";
+$insertBadSleep = "insert into badsleep (SleepNumber,Class,Time,Teacher,SleepType) VALUE ('$sleepNumber','$Class','$Time','$Teacher','$Type');";
 $insertBadSleep_result = $db->query($insertBadSleep);
 if (!$insertBadSleep_result) {
     echo json_encode('上报失败！');

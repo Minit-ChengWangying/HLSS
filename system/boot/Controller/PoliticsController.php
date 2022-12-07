@@ -45,6 +45,24 @@ class PoliticsController extends Controller {
         $Class = $_GET['class'];
         PoliticsView::getUnionhygieneReason($Class);
     }
+    public function goodsleep() {
+        self::run('politics');
+        PoliticsView::getSleepGood();
+    }
+    public function badsleep() {
+        self::run('politics');
+        PoliticsView::getSleepBad();
+    }
+    public function goodclasssleep() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::getSleepClassGood($Class);
+    }
+    public function badclasssleep() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::getSleepClassBad($Class);
+    }
 }
 
 ?>

@@ -48,7 +48,11 @@ if ($Limits_result == 'NoLimit') {
                         }
                     ?>
                 </select></div>
-                <div>寝室类型：<select id="select" class="selectItem">
+                <div>寝室类型：<select id="selectType" class="selectItem">
+                    <option value="Male">男</option>
+                    <option value="Female">女</option>
+                </select></div>
+                <div>上报类型：<select id="select" class="selectItem">
                     <option value="bad">差寝</option>
                     <option value="good">优寝</option>
                 </select></div>
@@ -78,6 +82,7 @@ if ($Limits_result == 'NoLimit') {
             // 获取下拉框内容
             var options = $("#select option:selected");
             var optionsClass = $("#selectClass option:selected");
+            var selectType = $("#selectType option:selected");
             // alert(optionsClass.val());
             // alert(options.val());
             
@@ -90,7 +95,7 @@ if ($Limits_result == 'NoLimit') {
             $.ajax({
                 type:"post",
                 url:"../../system/module/Sleep/insert.php",
-                data:{'class':optionsClass.val(),'sleepNumber':sleepNumber,"item":options.val()},
+                data:{'class':optionsClass.val(),'sleepNumber':sleepNumber,"item":options.val(),"type":selectType.val()},
                 beforeSend:function(XMLHttpRequest){
                     // alert('远程调用开始...');
                     document.getElementById('container').style.display = "none";

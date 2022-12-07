@@ -1,0 +1,46 @@
+.minit-container .sleepModule-container {
+    width: 98vw;
+    background-color: #fff;
+}
+.sleepModule-container {
+    display: none;
+}
+.sleepModule-container .sleepModule-left-container {
+    width: 50%;
+    height: 100%;
+    border-right: 2px solid #f0f0f0;
+    overflow: hidden;
+}
+.sleepModuleTitle {
+    margin-left: 15px;
+    font-size: 1.7em;
+    margin-top: 20px;
+}
+.sleepModule-left-container .sleepModule-left-table-container {
+    width: 96%;
+}
+.sleepModule-left-table-container .sleepModuleTable {
+    margin-left: 15px;
+}
+.sleepModule-container .sleepModule-left-buttom-container {
+    width: 100%;
+    height: 30px;
+}
+.sleepModule-container .sleepModule-right-container {
+    width: 50%;
+    height: 100%;
+    border-left: 2px solid #f0f0f0;
+}
+.sleepModule-right-container .sleepModule-right-select-container {
+    margin: 10px 0 0 15px;
+}
+.sleepModule-right-select-container .sleepModuleButton {
+    margin-left: 15px;
+}
+.sleepModule-right-container .sleepModuleRigthTitle {
+    margin-left: 15px;
+}
+.sleepModule-right-container .sleepModule-right-class-container {
+    width: 96%;
+    margin-left: 15px;
+}

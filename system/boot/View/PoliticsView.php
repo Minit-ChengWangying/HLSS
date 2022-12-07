@@ -44,5 +44,21 @@ class PoliticsView {
         self::$arrayRow = mysqli_fetch_all(PoliticsModel::unionHygieneReason($Class), MYSQLI_ASSOC);
         echo json_encode(array("error"=>0, "data" => self::$arrayRow));
     }
+    public static function getSleepGood() {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::sleepGood(), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function getSleepBad() {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::sleepBad(), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function getSleepClassGood($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::sleepClassGood($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function getSleepClassBad($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::sleepClassBad($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
 }
 ?>

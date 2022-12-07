@@ -133,6 +133,42 @@ class PoliticsModel {
         return self::$queryResult;
     }
     /**
+     * Version: 202212060955
+     * @return 本周优寝
+     */
+    public static function sleepGood() {
+        self::$Sql = "SELECT * FROM goodsleep";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212060955
+     * @return 本周差寝
+     */
+    public static function sleepBad() {
+        self::$Sql = "SELECT * FROM badsleep";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212060955
+     * @return 班级优寝
+     */
+    public static function sleepClassGood($Class) {
+        self::$Sql = "SELECT * FROM goodsleep WHERE Class = '$Class'";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212060955
+     * @return 班级差寝
+     */
+    public static function sleepClassBad($Class) {
+        self::$Sql = "SELECT * FROM badsleep WHERE Class = '$Class'";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
      * Author: WangMaixin
      * Version: 202212031520
      * @param 数据库连接信息

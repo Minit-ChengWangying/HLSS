@@ -8,7 +8,6 @@ function Quit() {
             success:function(Info) {
                 var Info = JSON.parse(Info);
                 console.log(Info);
-                // window.location = '../../index.php';
                 location.reload(false);
             }
         });

@@ -40,6 +40,7 @@ $a = 1;
         <link rel="stylesheet" href="../css/politicsTickets.css">
         <link rel="stylesheet" href="../config/minitPopup.css">
         <link rel="stylesheet" href="../css/politicsUnion.css">
+        <link rel="stylesheet" href="../css/politicsSleep.css">
     </head>
     <body>
         <div class="minit-popup-container" id="minitPopUp"></div>
@@ -48,7 +49,7 @@ $a = 1;
             <li class="layui-nav-item" id="consolemodule" onclick="consolemodule();"><a href="javascript:;">控制台</a></li>
             <li class="layui-nav-item" id="tickets" onclick="tickets();"><a href="javascript:;">罚单<span class="layui-badge" id="newTicketSpan"></span></a></li>
             <li class="layui-nav-item" id="unionstudent" onclick="unionstudent();"><a href="javascript:;">学生会</a></li>
-            <li class="layui-nav-item" onclick="sleep();"><a href="javascript:;">寝室</a></li>
+            <li class="layui-nav-item" id="sleep" onclick="sleep();"><a href="javascript:;">寝室</a></li>
             <li class="layui-nav-item" onclick="bonuspoints();"><a href="javascript:;">加分</a></li>
             <li class="layui-nav-item" onclick="classdetails();"><a href="javascript:;">班级详情</a></li>
             <li class="layui-nav-item">
@@ -62,6 +63,121 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
         </ul>
         <!-- 内容 -->
         <div class="minit-container flex" id="content-container">
+            <!-- 寝室 -->
+            <div class="sleepModule-container flex shadow" id="sleepModule-container">
+                <div class="sleepModule-left-container flex cloumn">
+                    <h2 class="sleepModuleTitle">本周优寝</h2>
+                    <div class="sleepModule-left-table-container flex">
+                        <table class="layui-table sleepModuleTable">
+                            <thead>
+                                <tr>
+                                    <th>寝室编号</th>
+                                    <th>寝室班级</th>
+                                    <th>上报时间</th>
+                                    <th>寝室类型</th>
+                                    <th>上报寝管</th>
+                                </tr> 
+                            </thead>
+                            <tbody id="sleepModuleGoodSleep">
+                                <tr>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2 class="sleepModuleTitle">本周差寝</h2>
+                    <div class="sleepModule-left-table-container flex">
+                        <table class="layui-table sleepModuleTable">
+                            <thead>
+                                <tr>
+                                    <th>寝室编号</th>
+                                    <th>寝室班级</th>
+                                    <th>上报时间</th>
+                                    <th>寝室类型</th>
+                                    <th>上报寝管</th>
+                                </tr> 
+                            </thead>
+                            <tbody id="sleepModuleBadSleep">
+                                <tr>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="sleepModule-left-buttom-container"></div>
+                </div>
+                <div class="sleepModule-right-container flex cloumn">
+                    <h2 class="sleepModuleTitle">班级寝室情况</h2>
+                    <div class="sleepModule-right-select-container flex">
+                        <form action="" lay-verify="" class="layui-form union-item-form">
+                            <select id="sleepModuleClass" lay-filter="sleepModuleClassSelect" name="quiz1"  lay-search="" class="sleepModuleClass">
+                                <option value="NULL">请选择班级</option>
+                                        <?php
+                                            echo '<option value=' . $firstClass . ' selected>' . $firstClass . '</option>';
+                                            foreach ($rows as $row) {
+                                                echo '<option value=' . $row['Class'] . '>' . $row['Class'] . '</option>';
+                                            }
+                                        ?>
+                            </select>
+                        </form>
+                        <button class="layui-btn sleepModuleButton" lay-submit lay-filter="formDemo" onclick="sleepModuleClass();">查询</button>
+                    </div>
+                    <h2 class="sleepModuleRigthTitle" style="margin-top: 10px;">班级优寝</h2>
+                    <div class="sleepModule-right-class-container flex">
+                        <table class="layui-table sleepModuleTable">
+                            <thead>
+                                <tr>
+                                    <th>寝室编号</th>
+                                    <th>寝室班级</th>
+                                    <th>上报时间</th>
+                                    <th>寝室类型</th>
+                                    <th>上报寝管</th>
+                                </tr> 
+                            </thead>
+                            <tbody id="sleepModuleClassGoodSleep">
+                                <tr>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2 class="sleepModuleRigthTitle">班级差寝</h2>
+                    <div class="sleepModule-right-class-container flex">
+                        <table class="layui-table sleepModuleTable">
+                            <thead>
+                                <tr>
+                                    <th>寝室编号</th>
+                                    <th>寝室班级</th>
+                                    <th>上报时间</th>
+                                    <th>寝室类型</th>
+                                    <th>上报寝管</th>
+                                </tr> 
+                            </thead>
+                            <tbody id="sleepModuleClassBadSleep">
+                                <tr>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <!-- 学生会 -->
             <div class="unionContent-container flex cloumn shadow" id="unionContent-container">
                 <h2 class="unionTitle">学生会班级分数</h2>
@@ -122,21 +238,9 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
                 <div class="unionModule-reason-container flex cloumn">
                     <p class="unionModuleScoreTitle">学生会体育部班级扣分详情</p>
                     <div class="unionModule-item-reason-container flex cloumn" id="unionModuleSportReason">
-                        <div class="unionModule-log-rason-container flex">
-                            <p>班级:<span id="unionModuleSportReasonClass">126</span></p>
-                            <p>扣分原因:<span id="unionModuleSportReasonText">步伐不齐</span></p>
-                            <p>扣分时间:<span id="unionModuleSportReasonTime">2022/12/5 22:53</span></p>
-                            <p>扣除分数:<span id="unionModuleSportReasonPoints">5</span></p>
-                        </div>
                     </div>
                     <p class="unionModuleScoreTitle unionModuleTitle">学生会卫生部班级扣分详情</p>
                     <div class="unionModule-item-reason-container flex cloumn"  id="unionModuleHygieneReason">
-                        <div class="unionModule-log-rason-container flex">
-                            <p>班级:<span id="unionModuleHygieneReasonClass">126</span></p>
-                            <p>扣分原因:<span id="unionModuleHygieneReasonText">步伐不齐</span></p>
-                            <p>扣分时间:<span id="unionModuleHygieneReasonTime">2022/12/5 22:53</span></p>
-                            <p>扣除分数:<span id="unionModuleHygieneReasonPoints">5</span></p>
-                        </div>
                     </div>
                 </div>
                 <div class="unionModuleButtom flex"></div>
@@ -351,7 +455,8 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
         <script type="text/javascript" src="../../js/jquery.min.js"></script>
         <script type="text/javascript" src="../config/minitPopup.js"></script>
         <script src="../../layui/layui.js"></script>
-        <script type="text/javascript" src="js/ajax.js"></script>                         
+        <script type="text/javascript" src="js/ajax.js"></script>   
+        <script type="text/javascript" src="js/sleep.js"></script>                      
         <script type="text/javascript" src="js/nav.js"></script>     
         <script>
             // 禁止X轴滚动条
