@@ -10,6 +10,8 @@ namespace User\devhelp;
 
 session_start();
 
+use User\config\DatabaseJSON;
+
 class user_login {
 
     /**
@@ -19,7 +21,7 @@ class user_login {
      */
     public function  __construct() {
         if (!isset($_SESSION['loginState'])) {
-            echo "<script>alert('登录状态失效,请重新登录！');location.href='http://5j4a135711.zicp.vip';</script>";
+            echo "<script>alert('登录状态失效,请重新登录！');location.href='".DatabaseJSON::host()."';</script>";
             die('Login Error!');
         }
     }

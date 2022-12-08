@@ -8,7 +8,7 @@
 * ----------------------------------------------------------- */
 namespace Module\Account;
 
-// session_start();
+use User\config\DatabaseJSON;
 
 /**
  * .PHP get login state
@@ -25,7 +25,7 @@ class detectionLoginStateFunction {
         if (isset($_SESSION['loginState'])) {
             return json_encode('True');
         } else {
-            echo "<script>alert('登录状态失效,请重新登录!');location.href='http://5j4a135711.zicp.vip';</script>";
+            echo "<script>alert('登录状态失效,请重新登录!');location.href='".DatabaseJSON::host()."';</script>";
             die('Login Error！');
         }
     } 
