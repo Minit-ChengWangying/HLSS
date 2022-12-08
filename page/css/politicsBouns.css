@@ -1,0 +1,34 @@
+.bonusModule-container {
+    width: 99vw;
+    background-color: #fff;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 30px;
+    display: none;
+}
+.bonusModule-container .bounsModule-bouns-container {
+    /* width: 50%; */
+    margin-top: 20px;
+    
+}
+.bounsModule-bouns-container .bounsModuleBounsTitle {
+    font-size: 1.9em;
+}
+.bounsModule-bouns-container .bouns-class{
+    margin-top: 10px;
+    width: 20vw;
+}
+.bounsModule-bouns-container .bounsModuleButton {
+    width: 15vw;
+    margin: 15px auto;
+}
+.bounsModule-explain-container .bounsModuleExplain {
+    background-color: rgb(241, 241, 241);
+}
+.bounsModule-explain-container .bounsModuleExplain h2 {
+    font-size: 1.5em;
+    letter-spacing: 3px;
+}
+.bounsModuleExplain .bounsModuleExplainFont {
+    font-size: 1.1em;
+}

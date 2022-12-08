@@ -60,5 +60,8 @@ class PoliticsView {
         self::$arrayRow = mysqli_fetch_all(PoliticsModel::sleepClassBad($Class), MYSQLI_ASSOC);
         echo json_encode(array("error"=>0, "data" => self::$arrayRow));
     }
+    public static function bounsPonits($Class,$Points) {
+        echo json_encode(PoliticsModel::bounsPoints($Class,$Points));
+    }
 }
 ?>

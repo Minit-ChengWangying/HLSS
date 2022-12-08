@@ -63,6 +63,12 @@ class PoliticsController extends Controller {
         $Class = $_GET['class'];
         PoliticsView::getSleepClassBad($Class);
     }
+    public function bouns() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        $Points = $_GET['points'];
+        PoliticsView::bounsPonits($Class,$Points);
+    }
 }
 
 ?>

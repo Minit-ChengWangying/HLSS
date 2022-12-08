@@ -41,6 +41,7 @@ $a = 1;
         <link rel="stylesheet" href="../config/minitPopup.css">
         <link rel="stylesheet" href="../css/politicsUnion.css">
         <link rel="stylesheet" href="../css/politicsSleep.css">
+        <link rel="stylesheet" href="../css/politicsBouns.css">
     </head>
     <body>
         <div class="minit-popup-container" id="minitPopUp"></div>
@@ -50,7 +51,7 @@ $a = 1;
             <li class="layui-nav-item" id="tickets" onclick="tickets();"><a href="javascript:;">罚单<span class="layui-badge" id="newTicketSpan"></span></a></li>
             <li class="layui-nav-item" id="unionstudent" onclick="unionstudent();"><a href="javascript:;">学生会</a></li>
             <li class="layui-nav-item" id="sleep" onclick="sleep();"><a href="javascript:;">寝室</a></li>
-            <li class="layui-nav-item" onclick="bonuspoints();"><a href="javascript:;">加分</a></li>
+            <li class="layui-nav-item" id="bonuspoints" onclick="bonuspoints();"><a href="javascript:;">加分</a></li>
             <li class="layui-nav-item" onclick="classdetails();"><a href="javascript:;">班级详情</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;"><img src="
@@ -63,6 +64,44 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
         </ul>
         <!-- 内容 -->
         <div class="minit-container flex" id="content-container">
+            <!-- 加分 -->
+            <div class="bonusModule-container flex cloumn shadow" id="bonusModule-container">
+                <div class="bounsModule-bouns-container flex cloumn">
+                    <h2 class="bounsModuleBounsTitle">政教处班级加分</h2>
+                    <form action="" lay-verify="" class="layui-form bouns-class">
+                        <select id="bounsModuleClass" lay-filter="bounsModuleClassSelect" name="quiz1"  lay-search="" class="bounsModuleSelect">
+                            <option value="NULL">请选择班级</option>
+                                    <?php
+                                        echo '<option value=' . $firstClass . ' selected>' . $firstClass . '</option>';
+                                        foreach ($rows as $row) {
+                                            echo '<option value=' . $row['Class'] . '>' . $row['Class'] . '</option>';
+                                        }
+                                    ?>
+                        </select>
+                    </form>
+                    <form action="" lay-verify="" class="layui-form bouns-class">
+                        <select id="bounsModulePoints" lay-filter="bounsModulePointsSelect" name="quiz1"  lay-search="" class="bounsModuleSelect">
+                            <option value="NULL">请选择分数</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </form>
+                    <button class="layui-btn bounsModuleButton" lay-submit lay-filter="formDemo" onclick="bounsComfirmPoints();">提交</button>
+                </div>
+                <div class="bounsModule-explain-container flex">
+                    <div class="layui-card bounsModuleExplain">
+                        <div class="layui-card-header"><h2>温馨提示</h2></div>
+                            <div class="layui-card-body bounsModuleExplainFont">
+                                使用本模块须知<br>
+                                本模块将分数直接加到班级分数中不会进行登记<br>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
             <!-- 寝室 -->
             <div class="sleepModule-container flex shadow" id="sleepModule-container">
                 <div class="sleepModule-left-container flex cloumn">
@@ -456,7 +495,8 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
         <script type="text/javascript" src="../config/minitPopup.js"></script>
         <script src="../../layui/layui.js"></script>
         <script type="text/javascript" src="js/ajax.js"></script>   
-        <script type="text/javascript" src="js/sleep.js"></script>                      
+        <script type="text/javascript" src="js/sleep.js"></script>
+        <script type="text/javascript" src="js/bouns.js"></script>                
         <script type="text/javascript" src="js/nav.js"></script>     
         <script>
             // 禁止X轴滚动条

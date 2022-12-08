@@ -169,6 +169,17 @@ class PoliticsModel {
         return self::$queryResult;
     }
     /**
+     * Version: 202212081041
+     * @abstract 班级加分
+     */
+    public static function bounsPoints($Class,$Points) {
+        $ScoresSQL = "SELECT * FROM class WHERE class = '$Class'";
+        $Score = self::db()->query($ScoresSQL)->fetch_array( MYSQLI_ASSOC )['Score']+$Points;
+        self::$Sql = "UPDATE class SET Score = '$Score' WHERE Class = '$Class';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
      * Author: WangMaixin
      * Version: 202212031520
      * @param 数据库连接信息
