@@ -81,10 +81,27 @@ function number() {
     $.ajax({
         type:"get",
         url:"../../system/hlss.php",
-        data:{"p":"politics/number"},
+        data:{"p":"politics/system"},
         beforeSend:function(XMLHttpRequest){
             loadPopupAppear();
         },
+        success:function(data) {
+            var numberData = JSON.parse(data).data;
+            Time = new Date(parseInt(numberData[0].week_time)*1000).toLocaleString().replace(/:\d{1,2}$/,'');
+            document.getElementById('weekNumber').innerText = numberData[0].week_number;
+            document.getElementById('weekTime').innerText = Time;
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            errorPopupApper();
+            setTimeout(function() {
+                popupDisappear();
+            },4000);
+        }
+    });
+    $.ajax({
+        type:"get",
+        url:"../../system/hlss.php",
+        data:{"p":"politics/number"},
         success:function(data) {
             var numberData = JSON.parse(data).data;
             document.getElementById('newTicketSpan').innerText = numberData.newticket;
@@ -105,6 +122,22 @@ function number() {
     });
 }
 // $("#ticketSelect").find("option:contains('学期罚单')").attr("selected", true);
+// Tickets read
+function ticketModuleRead() {
+     $.ajax({
+        type:"get",
+        url:"../../system/hlss.php",
+        data:{"p":"politics/ticketsread"},
+        success:function(data) {
+            var data = JSON.parse(data);
+            if(data == true) {
+                console.log('success');
+            }else {
+                alert('系统未知错误!');
+            }
+        }
+    });
+}
 // Ticket module of week ticket
 function ticketModule() {
     var list = document.getElementById('ticketList');
@@ -127,7 +160,11 @@ function ticketModule() {
                     Type = '重大违纪罚单';
                 }
                 arrayHTML += `<tr>`;
-                arrayHTML += `<td>${dataArr[i].StudentName}</td>`;
+                if(dataArr[i].State == 'Flase') {
+                    arrayHTML += `<td><span class="layui-badge-dot" style="margin-right: 5px;"></span>${dataArr[i].StudentName}</td>`;
+                }else {
+                    arrayHTML += `<td>${dataArr[i].StudentName}</td>`;
+                }
                 arrayHTML += `<td>${dataArr[i].TextReason}</td>`;
                 arrayHTML += `<td>${dataArr[i].TeacherName}</td>`;
                 arrayHTML += `<td>${dataArr[i].Class}</td>`;
@@ -139,6 +176,7 @@ function ticketModule() {
             }
             list.innerHTML = arrayHTML;
             popupDisappear();
+            ticketModuleRead();
         },
         error:function(XMLHttpRequest, textStatus, errorThrown) {
             popupDisappear();
@@ -179,6 +217,7 @@ function ticketsModule() {
             }
             list.innerHTML = arrayHTML;
             popupDisappear();
+            ticketModuleRead();
         },
         error:function(XMLHttpRequest, textStatus, errorThrown) {
             popupDisappear();
@@ -219,6 +258,7 @@ function majorticketsModule() {
             }
             list.innerHTML = arrayHTML;
             popupDisappear();
+            ticketModuleRead();
         },
         error:function(XMLHttpRequest, textStatus, errorThrown) {
             popupDisappear();
@@ -259,6 +299,7 @@ function weekmajorticketsModule() {
             }
             list.innerHTML = arrayHTML;
             popupDisappear();
+            ticketModuleRead();
         },
         error:function(XMLHttpRequest, textStatus, errorThrown) {
             popupDisappear();
@@ -441,3 +482,27 @@ function unionModuleQuery() {
         }
     });
 }
+function Settlement() {
+    $.ajax({
+        type:"get",
+        url:"../../system/hlss.php",
+        data:{"p":"politics/settlement"},
+        success:function(data) {
+            var data = JSON.parse(data);
+            if(data == true) {
+                alert('结算成功');
+                location.reload(false);
+            }else {
+                alert('结算失败');
+            }
+        }
+    });
+}
+$('#Settlement').click(function() {
+    var settlementConfirm = confirm('确定结算本周记录吗？(结算后一些信息无法找回重新开始新的记录)');
+    if(settlementConfirm == true) {
+        Settlement();
+    }else if(settlementConfirm == false) {
+        alert('取消成功');
+    }
+});

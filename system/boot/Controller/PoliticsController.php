@@ -69,6 +69,38 @@ class PoliticsController extends Controller {
         $Points = $_GET['points'];
         PoliticsView::bounsPonits($Class,$Points);
     }
+    public function classweektickets() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::classQueryWeekTickets($Class);
+    }
+    public function classweekmajortickets() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::classQueryWeekMajorTickets($Class);
+    }
+    public function classtickets() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::classQueryTickets($Class);
+    }
+    public function classmajortickets() {
+        self::run('politics');
+        $Class = $_GET['class'];
+        PoliticsView::classQueryMajorTickets($Class);
+    }
+    public function ticketsread() {
+        self::run('politics');
+        PoliticsView::ticketModuleRead();
+    }
+    public function settlement() {
+        self::run(('politics'));
+        PoliticsView::Settlement();
+    }
+    public function system() {
+        self::run('politics');
+        PoliticsView::systemInfo();
+    }
 }
 
 ?>

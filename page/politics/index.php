@@ -42,6 +42,7 @@ $a = 1;
         <link rel="stylesheet" href="../css/politicsUnion.css">
         <link rel="stylesheet" href="../css/politicsSleep.css">
         <link rel="stylesheet" href="../css/politicsBouns.css">
+        <link rel="stylesheet" href="../css/politicsClass.css">
     </head>
     <body>
         <div class="minit-popup-container" id="minitPopUp"></div>
@@ -52,18 +53,175 @@ $a = 1;
             <li class="layui-nav-item" id="unionstudent" onclick="unionstudent();"><a href="javascript:;">学生会</a></li>
             <li class="layui-nav-item" id="sleep" onclick="sleep();"><a href="javascript:;">寝室</a></li>
             <li class="layui-nav-item" id="bonuspoints" onclick="bonuspoints();"><a href="javascript:;">加分</a></li>
-            <li class="layui-nav-item" onclick="classdetails();"><a href="javascript:;">班级详情</a></li>
+            <li class="layui-nav-item" id="classdetails" onclick="classdetails();"><a href="javascript:;">班级详情</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;"><img src="
 https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public/user.png" class="layui-nav-img"><?php echo $teacherName; ?></a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">修改密码</a></dd>
+                    <dd><a href="javascript:;" id="Settlement">一键结算</a></dd>
                     <dd><a href="javascript:;" onclick="Quit();">退出登录</a></dd>
                 </dl>
             </li>
         </ul>
         <!-- 内容 -->
         <div class="minit-container flex" id="content-container">
+            <!-- 班级详情 -->
+            <div class="classModule-container flex cloumn shadow" id="classModule-container">
+                <h2 class="classModuleClassTitle">班级详情</h2>
+                <div class="classModule-class-container flex">
+                    <form action="" lay-verify="" class="layui-form classModuleClassSelectForm">
+                        <select id="classModuleSelect" lay-filter="" name="quiz1"  lay-search="" class="classModuleClassSelect">
+                            <option value="NULL">请选择班级</option>
+                                    <?php
+                                        echo '<option value=' . $firstClass . ' selected>' . $firstClass . '</option>';
+                                        foreach ($rows as $row) {
+                                            echo '<option value=' . $row['Class'] . '>' . $row['Class'] . '</option>';
+                                        }
+                                    ?>
+                        </select>
+                    </form>
+                    <button class="layui-btn classModuleButton" lay-submit lay-filter="formDemo" onclick="classModuleButton();">查询</button>
+                </div>
+                <div class="classModule-tickets-container flex cloumn">
+                    <h2 class="classModuleTicketsTitle classModuleTitle" style="margin-top: 8px;">班级罚单</h2>
+                    <form action="" lay-verify="" class="layui-form classModuleTicketsFormSelect">
+                        <select id="classModuleTicketsSelect" lay-filter="classModuleTicketSelect" name="quiz1" class="">
+                            <option value="week" selected>本周罚单</option>
+                            <option value="semester">学期罚单</option>
+                            <option value="majorWeek">本周重大违纪罚单</option>
+                            <option value="major">重大违纪罚单</option>
+                        </select>
+                    </form>
+                    <table class="layui-table classModuleTable">
+                            <thead>
+                                <tr>
+                                    <th>学生姓名</th>
+                                    <th>原因</th>
+                                    <th>开单教师</th>
+                                    <th>学生班级</th>
+                                    <th>扣除分数</th>
+                                    <th>开单时间</th>
+                                    <th>罚单编号</th>
+                                    <th>罚单类型</th>
+                                </tr> 
+                            </thead>
+                            <tbody id="classModuleTicketsTable">
+                                <tr>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div class="classModule-union-container flex cloumn">
+                    <div class="classModule-score-container flex cloumn">
+                        <h2 class="classModuleScoreTitle classModuleTitle">学生会体育部分数详情</h2>
+                        <table class="layui-table classModuleTable">
+                            <thead>
+                                <tr>
+                                    <th>旗手</th>
+                                    <th>队列</th>
+                                    <th>口号</th>
+                                    <th>总分</th>
+                                </tr> 
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="classModuleStandardBearer">NULL</td>
+                                    <td id="classModuleQueue">NULL</td>
+                                    <td id="classModuleSlogan">NULL</td>
+                                    <td id="classModuleSportScore">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="classModule-score-container flex cloumn">
+                    <h2 class="classModuleScoreTitle classModuleTitle">学生会卫生部分数详情</h2>
+                        <table class="layui-table classModuleTable">
+                            <thead>
+                                <tr>
+                                    <th>清洁区</th>
+                                    <th>教室</th>
+                                    <th>总分</th>
+                                </tr> 
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="classModuleArea">NULL</td>
+                                    <td id="classModuleClass">NULL</td>
+                                    <td id="classModuleHygieneScore">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="classModule-reason-container flex cloumn">
+                        <h2 class="classModuleScoreTitle classModuleTitle">学生会体育部班级扣分详情</h2>
+                        <div class="classModule-item-reason-container flex cloumn" id="classModuleSportReason">
+                        </div>
+                        <h2 class="classModuleScoreTitle unionModuleTitle classModuleTitle"  style="margin-top: 8px;">学生会卫生部班级扣分详情</h2>
+                        <div class="classModule-item-reason-container flex cloumn"  id="classModuleHygieneReason">
+                        </div>
+                    </div>
+                </div>
+                <div class="classModule-sleep-container flex cloumn">
+                    <div class="classModule-good-container flex cloumn">
+                        <h2 class="classSleepModuleTitle classModuleTitle" style="margin-top: 8px;">本周优寝</h2>
+                        <div class="classModule-good-table-container flex">
+                            <table class="layui-table classModuleTable">
+                                <thead>
+                                    <tr>
+                                        <th>寝室编号</th>
+                                        <th>寝室班级</th>
+                                        <th>上报时间</th>
+                                        <th>寝室类型</th>
+                                        <th>上报寝管</th>
+                                    </tr> 
+                                </thead>
+                                <tbody id="classModuleGoodSleep">
+                                    <tr>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h2 class="classSleepModuleTitle classModuleTitle">本周差寝</h2>
+                        <div class="classModule-bad-table-container flex">
+                            <table class="layui-table classModuleTable">
+                                <thead>
+                                    <tr>
+                                        <th>寝室编号</th>
+                                        <th>寝室班级</th>
+                                        <th>上报时间</th>
+                                        <th>寝室类型</th>
+                                        <th>上报寝管</th>
+                                    </tr> 
+                                </thead>
+                                <tbody id="classModuleBadSleep">
+                                    <tr>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                        <td id="">NULL</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- 加分 -->
             <div class="bonusModule-container flex cloumn shadow" id="bonusModule-container">
                 <div class="bounsModule-bouns-container flex cloumn">
@@ -217,6 +375,7 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
                     </div>
                 </div>
             </div>
+
             <!-- 学生会 -->
             <div class="unionContent-container flex cloumn shadow" id="unionContent-container">
                 <h2 class="unionTitle">学生会班级分数</h2>
@@ -342,30 +501,36 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
 
 
 
-            <!-- 左侧内容 -->
+            <!-- 控制台 -->
             <div class="left-container flex cloumn shadow" id="left-container">
+                <!-- 系统概况 -->
+                <div class="system-container flex">
+                    <div class="flex"><h2 class="systemWeekNumber">当前正在进行第<span id="weekNumber">NULL</span>周</h2></div>
+                    <div class="flex"><p class="systemWeekTime">上次结算时间:<span id="weekTime">NULL</span></p></div>
+                </div>
+                <hr>
                 <!-- 罚单 -->
                 <div class="ticket-container flex cloumn">
                     <h2>罚单概览</h2>
                     <div class="ticket-information-container flex">
                         <div class="ticket-number-container flex">
                             <div class="ticket-number-a-container flex cloumn">
-                                <span id="newTicket">NULL</span><a href="javascript:;"><p>新增罚单</p></a>
+                                <span id="newTicket">NULL</span><a href="javascript:;" onclick="tickets();"><p>新增罚单</p></a>
                             </div>
                             <div class="ticket-number-a-container flex cloumn">
-                                <span id="newMajorTicket">NULL</span><a href="javascript:;"><p>新增重大违纪</p></a>
+                                <span id="newMajorTicket">NULL</span><a href="javascript:;" onclick="tickets();"><p>新增重大违纪</p></a>
                             </div>
                             <div class="ticket-number-a-container flex cloumn">
-                                <span id="weekTicket">NULL</span><a href="javascript:;"><p>本周罚单总数</p></a>
+                                <span id="weekTicket">NULL</span><a href="javascript:;" onclick="tickets();"><p>本周罚单总数</p></a>
                             </div>
                             <div class="ticket-number-a-container flex cloumn">
-                                <span id="weekMajorTicket">NULL</span><a href="javascript:;"><p>本周重大违纪总数</p></a>
+                                <span id="weekMajorTicket">NULL</span><a href="javascript:;" onclick="tickets();"><p>本周重大违纪总数</p></a>
                             </div>
                             <div class="ticket-number-a-container flex cloumn">
-                                <span id="Ticket">NULL</span><a href="javascript:;"><p>学期罚单总数</p></a>
+                                <span id="Ticket">NULL</span><a href="javascript:;" onclick="tickets();"><p>学期罚单总数</p></a>
                             </div>
                             <div class="ticket-number-a-container flex cloumn">
-                                <span id="majorTicket">NULL</span><a href="javascript:;"><p>学期重大违纪总数</p></a>
+                                <span id="majorTicket">NULL</span><a href="javascript:;" onclick="tickets();"><p>学期重大违纪总数</p></a>
                             </div>
                         </div>
                     </div>
@@ -496,9 +661,25 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
         <script src="../../layui/layui.js"></script>
         <script type="text/javascript" src="js/ajax.js"></script>   
         <script type="text/javascript" src="js/sleep.js"></script>
-        <script type="text/javascript" src="js/bouns.js"></script>                
+        <script type="text/javascript" src="js/bouns.js"></script>    
+        <script type="text/javascript" src="js/class.js"></script>            
         <script type="text/javascript" src="js/nav.js"></script>     
         <script>
+            // Self-adaption
+            if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))){
+                alert('系统默认手机端无法访问此页面!');
+                $.ajax({
+                    type:"get",
+                    url:"../../system/module/Account/quit.php",
+                    success:function(Info) {
+                        var Info = JSON.parse(Info);
+                        console.log(Info);
+                        location.reload(false);
+                    }
+                });
+            } else{
+                console.log('PC');
+            }
             // 禁止X轴滚动条
             document.body.parentNode.style.overflowX = "hidden";
             // 获取GET值

@@ -63,5 +63,31 @@ class PoliticsView {
     public static function bounsPonits($Class,$Points) {
         echo json_encode(PoliticsModel::bounsPoints($Class,$Points));
     }
+    public static function classQueryWeekTickets($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::classQueryWeekTickets($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function classQueryWeekMajorTickets($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::classQueryWeekMajorTickets($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function classQueryTickets($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::classQueryTickets($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function classQueryMajorTickets($Class) {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::classQueryMajorTickets($Class), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data" => self::$arrayRow));
+    }
+    public static function ticketModuleRead() {
+        echo json_encode(PoliticsModel::ticketModuleRead());
+    }
+    public static function Settlement() {
+        echo json_encode(PoliticsModel::Settlement());
+    }
+    public static function systemInfo() {
+        self::$arrayRow = mysqli_fetch_all(PoliticsModel::SystemInfo(), MYSQLI_ASSOC);
+        echo json_encode(array("error"=>0, "data"=>self::$arrayRow));
+    }
 }
 ?>

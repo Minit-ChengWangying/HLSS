@@ -18,7 +18,7 @@ body {
     justify-content: center;
 }
 .minit-container .left-container {
-    width: 68vw;
+    width: 70vw;
     /* height: 400px; */
     background-color: #fff;
     margin-right: 1vw;
@@ -27,6 +27,17 @@ body {
     width: 27vw;
     /* height: 400px; */
     background-color: #fff;
+}
+.minit-container .system-container {
+    padding: 10px 0 0 15px;
+    align-items: flex-end;
+}
+.system-container .systemWeekNumber {
+    font-size: 2em;
+    margin-right: 10px;
+}
+.system-container .systemWeekTime {
+    font-size: 1.1em;
 }
 .minit-container .left-container .left-bottom-container {
     height: 30px;

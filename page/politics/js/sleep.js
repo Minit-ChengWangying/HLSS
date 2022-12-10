@@ -70,6 +70,10 @@ function sleepModuleWeek() {
 // Class Sleep
 function sleepModuleClass() {
     var Class = $("#sleepModuleClass option:selected").val();
+    if(Class == 'NULL') {
+        alert('请选择一个班级!');
+        throw SyntaxError('Please select a class!');
+    }
     var badClassList = document.getElementById('sleepModuleClassBadSleep');
     var goodClassList = document.getElementById('sleepModuleClassGoodSleep');
     $.ajax({

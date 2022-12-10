@@ -59,7 +59,7 @@ if ($Limits_result == 'NoLimit') {
                 <div><button onclick="submitTicket();">提交</button></div>
                 <div class="fast flex column">
                     <h2>快速访问：</h2>
-                    <a href="../index.php">快捷访问</a>
+                    <a href="../index/index.php">快捷访问</a>
                 </div>
                 
             </div>
@@ -75,7 +75,16 @@ if ($Limits_result == 'NoLimit') {
             console.log('Mobile');
         } else{
             console.log('PC');
-            alert("推荐使用手机访问此页面否则可能会出现显示问题");
+            alert('系统默认电脑端无法访问此页面!');
+            $.ajax({
+                type:"get",
+                url:"../../system/module/Account/quit.php",
+                success:function(Info) {
+                    var Info = JSON.parse(Info);
+                    console.log(Info);
+                    location.reload(false);
+                }
+            });
         }
 
         function submitTicket() {

@@ -1,0 +1,41 @@
+.minit-container .classModule-container {
+    width: 99%;
+    background-color: #fff;
+    padding: 10px 0 10px 0;
+    /* display: none; */
+}
+.classModuleTitle {
+    margin-left: 15px;
+    font-size: 1.5em;
+}
+.classModule-container .classModuleClassTitle {
+    margin-left: 15px;
+    font-size: 1.7em;
+}
+.classModule-container .classModule-class-container {
+    margin: 10px 15px 0 0;
+}
+.classModule-class-container .classModule-class {
+    margin: 0 15px 0 15px;
+}
+.classModule-class-container .classModuleClassSelectForm {
+    margin: 0 15px 0 15px;
+}
+.classModule-tickets-container .classModuleTicketsFormSelect {
+    width: 212px;
+    margin: 8px 0  0 15px;
+}
+.classModuleTable {
+    width: 95%;
+    margin-left: 15px;
+}
+.classModule-reason-container .classModule-item-reason-container {
+    width: 98%;
+    background-color: #eee;
+    padding: 10px 0 10px 0;
+    margin: 6px 0 0 15px;
+}
+.classModule-item-reason-container .classModule-log-reason-container p {
+    margin: 6px 0 0 15px;
+    font-size: 1.1em;
+}

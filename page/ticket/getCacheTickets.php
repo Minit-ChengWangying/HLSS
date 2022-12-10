@@ -103,7 +103,16 @@ $h = 1;
             console.log('Mobile');
         } else{
             console.log('PC');
-            alert("推荐使用手机访问此页面否则可能会出现显示问题");
+            alert('系统默认电脑端无法访问此页面!');
+            $.ajax({
+                type:"get",
+                url:"../../system/module/Account/quit.php",
+                success:function(Info) {
+                    var Info = JSON.parse(Info);
+                    console.log(Info);
+                    location.reload(false);
+                }
+            });
         }
 
         // href
@@ -111,7 +120,7 @@ $h = 1;
             window.location = "recordTicket.php";
         }
         function account () {
-            window.location = "../index.php";
+            window.location = "../index/index.php";
         }
 
         // operation

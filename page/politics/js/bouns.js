@@ -26,7 +26,13 @@ function bounsPoints(Class,Points) {
             loadPopupAppear();
         },
         success:function(data) {
-            alert('加分成功');
+            var data = JSON.parse(data);
+            console.log(data);
+            if(data == true) {
+                alert('加分成功');
+            }else {
+                alert('加分失败');
+            }
             popupDisappear();
         },
         error:function(XMLHttpRequest, textStatus, errorThrown) {

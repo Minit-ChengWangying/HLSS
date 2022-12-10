@@ -180,6 +180,78 @@ class PoliticsModel {
         return self::$queryResult;
     }
     /**
+     * Version: 202212091507
+     * @return 班级本周罚单
+     */
+    public static function classQueryWeekTickets($Class) {
+        self::$Sql = "SELECT * FROM week WHERE Class = '$Class';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212091551
+     * @return 班级本周重大违纪罚单
+     */
+    public static function classQueryWeekMajorTickets($Class) {
+        self::$Sql = "SELECT * FROM week WHERE Class = '$Class' AND tickettype = 'major';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212091600
+     * @return 班级学期罚单
+     */
+    public static function classQueryTickets($Class) {
+        self::$Sql = "SELECT * FROM tickets WHERE Class = '$Class';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212091551
+     * @return 班级学期重大违纪罚单
+     */
+    public static function classQueryMajorTickets($Class) {
+        self::$Sql = "SELECT * FROM tickets WHERE Class = '$Class' AND tickettype = 'major';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212091646
+     * @abstract 罚单已读功能
+     */
+    public static function ticketModuleRead() {
+        self::$Sql = "UPDATE week SET State = 'True' WHERE State = 'Flase';";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212091646
+     * @abstract 一键结算
+     */
+    public static function Settlement() {
+        $Time = time();
+        self::$Sql = "TRUNCATE TABLE week;";
+        self::$Sql .= "UPDATE unionsport SET StandardBearer = '10',Queue = '15',Slogan = '15',Score = '40';";
+        self::$Sql .= "UPDATE unionhygene SET Area = '20',Classroom = '15',Score = '35';";
+        self::$Sql .= "UPDATE class SET Score = '100';";
+        self::$Sql .= "TRUNCATE TABLE goodsleep;";
+        self::$Sql .= "TRUNCATE TABLE badsleep;";
+        self::$Sql .= "TRUNCATE TABLE cache;";
+        self::$Sql .= "UPDATE tickets SET State = 'True' WHERE State = 'Flase';";
+        self::$Sql .= "UPDATE register SET week_number = week_number+1,week_time = '$Time';";
+        self::$queryResult = self::db()->multi_query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
+     * Version: 202212100840
+     * @return 系统信息
+     */
+    public static function SystemInfo() {
+        self::$Sql = "SELECT* FROM register;";
+        self::$queryResult = self::db()->query(self::$Sql);
+        return self::$queryResult;
+    }
+    /**
      * Author: WangMaixin
      * Version: 202212031520
      * @param 数据库连接信息
