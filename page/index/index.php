@@ -28,6 +28,7 @@ $version = $data['version'];
         <a href="../unionstudent/index.php" class="shadow">学生会扣分</a>
         <a href="../ticket/getCacheTickets.php" class="shadow">提交罚单</a>
         <a href="../sleep/index.php" class="shadow">寝室上报</a>
+        <a href="../update/update_password_mobile.php" class="shadow">修改密码</a>
         <a href="javascript:;" onclick="Quit();" class="shadow">退出登录</a>
         <div class="system shadow">
             <p class="version">系统版本:<?php echo $version; ?></p>

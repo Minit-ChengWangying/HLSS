@@ -32,7 +32,7 @@ button {
     font-size: 1.1em;
     color: #000;
 }
-button:focus {
+button:active {
     background-color: #70a1ff;
 }
 a {

@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.flex {
+    display: flex;
+}
+.cloumn {
+    flex-direction: column;
+}
+body {
+    background-color: #f0f0f0;
+    align-items: center;
+}
+input {
+    height: 4vh;
+    font-size: 14pt;
+    border: none;
+    border-bottom: 2px solid #2d3436;
+}
+input:focus {
+    outline: 0;
+}
+button {
+    width: 50%;
+    height: 50px;
+    margin-left: 25%;
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    border: none;
+    background-color: #1e90ff;
+    border-radius: 5px;
+    font-size: 18pt;
+    color: #000;
+}
+button:active {
+    background-color: #70a1ff;
+}
+a {
+    /* width: 94%; */
+    letter-spacing: 2px;
+    padding: 10px 20px 10px 20px;
+    /* margin-top: 20px; */
+    text-align: center;
+    margin-left: 3%; /*此方法在后续版本中优先更改*/
+    /* border: 1px solid red; */
+    background-color: #1e90ff;
+    box-shadow: 0px 6px 7px rgba(79 ,79 ,79 ,0.2);
+    border-radius: 8px;
+    color: #000;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.title-container {
+    width: 94vw;
+    background-color: #fff;
+    margin-top: 10px;
+    justify-content: center;
+    padding: 15px 0 15px 0;
+    font-size: 14pt;
+}
+.content-container {
+    width: 94vw;
+    height: 79vh;
+    background-color: #fff;
+    margin-top: 12px;
+    align-items: center;
+    padding: 15px 0 0 0;
+}
+.content-container .topMargin {
+    margin-top: 20px;
+}
+.content-container .Margin {
+    margin-top: 20px;
+}
+.content-container .form-input-container p {
+    font-size: 15pt;
+    margin-right: 5px;
+}
+.content-container .btnMargin {
+    margin-top: 30px;
+}
+.content-container .input {
+    width: 94%;
+}
+.content-container .button {
+    width: 100%;
+}
+.content-container .fast {
+    width: 96%;
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+.content-container .fast-container {
+    width: 92%;
+    font-size: 18pt;
+}

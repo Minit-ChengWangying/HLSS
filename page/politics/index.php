@@ -58,7 +58,7 @@ $a = 1;
                 <a href="javascript:;"><img src="
 https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public/user.png" class="layui-nav-img"><?php echo $teacherName; ?></a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:;">修改密码</a></dd>
+                    <dd><a href="../update/update_password_web.php">修改密码</a></dd>
                     <dd><a href="javascript:;" id="Settlement">一键结算</a></dd>
                     <dd><a href="javascript:;" onclick="Quit();">退出登录</a></dd>
                 </dl>

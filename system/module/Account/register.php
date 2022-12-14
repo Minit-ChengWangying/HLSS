@@ -8,16 +8,15 @@
 namespace Module\Account;
 
 require('../Mysql/connectMysql.php');
+require_once('../mode/blackList.php');
 
 $userName = $_POST['username'];
 $Password = $_POST['password'];
 $Branch = $_POST['branch'];
 $teacherName = $_POST['teachername'];
 
-# 此处需要加一个空值过滤
-
+$Password = str_replace($blackList, 'm', $Password);
 $encryptionPassword = md5($Password);
-// var_dump($encryptionPassword);
 
 $selcet = "select * from login where username='$userName'";
 $selcet_result = $db->query($selcet);

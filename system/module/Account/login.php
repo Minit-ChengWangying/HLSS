@@ -13,8 +13,6 @@ require('../mode/blackList.php');
 $Username = $_POST['account'];
 $Password = $_POST['password'];
 
-$encryptionPassword = md5($Password);
-
 // Data validation
 if($Username == '') {
     echo json_encode("输入值不能为空！");
@@ -24,16 +22,9 @@ if($Password == '') {
     echo json_encode("输入值不能为空！");
     exit;
 }
-foreach( $blackList as $senChar ) {
-    if( $Username == $senChar ) {
-        echo json_encode("Err: Illegal character!");
-        exit;
-    }
-    if( $Password == $senChar ) {
-        echo json_encode("Err: Illegal character!");
-        exit;
-    }
-}
+
+$Password = str_replace($blackList, 'm', $Password);
+$encryptionPassword = md5($Password);
 
 $loginSQL = "select * from Login where username='$Username' and password='$encryptionPassword'";
 
