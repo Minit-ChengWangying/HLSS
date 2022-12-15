@@ -11,7 +11,7 @@ class PoliticsModel {
      * @return 本周罚单详细信息
      */
     public static function queryWeekTicket() {
-        self::$Sql = 'SELECT * FROM week;';
+        self::$Sql = 'SELECT * FROM week order by ID desc;';
         self::$queryResult = self::db()->query(self::$Sql);
         return self::$queryResult;
     }
@@ -21,7 +21,7 @@ class PoliticsModel {
      * @return 学期罚单详细信息
      */
     public static function queryTickets() {
-        self::$Sql = 'SELECT * FROM tickets;';
+        self::$Sql = 'SELECT * FROM tickets order by ID desc;';
         self::$queryResult = self::db()->query(self::$Sql);
         return self::$queryResult;
     }
@@ -31,7 +31,7 @@ class PoliticsModel {
      * @return 本周重大违纪罚单
      */
     public static function queryWeekMajorTickets() {
-        self::$Sql = 'SELECT * FROM week where tickettype = "major";';
+        self::$Sql = 'SELECT * FROM week where tickettype = "major" order by ID desc;';
         self::$queryResult = self::db()->query(self::$Sql);
         return self::$queryResult;
     }
@@ -41,7 +41,7 @@ class PoliticsModel {
      * @return 学期重大违纪罚单
      */
     public static function queryMajorTickets() {
-        self::$Sql = 'SELECT * FROM tickets where tickettype = "major";';
+        self::$Sql = 'SELECT * FROM tickets where tickettype = "major" order by ID desc;';
         self::$queryResult = self::db()->query(self::$Sql);
         return self::$queryResult;
     }

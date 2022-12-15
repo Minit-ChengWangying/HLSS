@@ -1,8 +1,6 @@
 <?php
 namespace Boot\Model;
 
-// require('../../../vendor/autoload.php');
-
 use Boot\Config\MySQL;
 
 class AccountModel {
@@ -30,6 +28,9 @@ class AccountModel {
     }
     private static function encryptionPwd($pwd) {
         return md5($pwd);
+    }
+    public static function loginVerify() {
+        
     }
     private static function db() {
         return MySQL::connect();

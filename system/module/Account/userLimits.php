@@ -15,10 +15,12 @@ class user_limits {
      * @return
      */
     public function __construct() {
-        $host = 'rm-bp1923307guk6ks3fxo.mysql.rds.aliyuncs.com';
-        $databaseuser = 'minit';
-        $password = 'minit000666!';
-        $databasename = 'hlss';
+        $json_string = file_get_contents('../../../config.json');
+        $data = json_decode($json_string, true);
+        $host = $data['database']['HOST'];
+        $databaseuser = $data['database']['USERNAME'];
+        $password = $data['database']['PASSWORD'];
+        $databasename = $data['database']['DATABASESHEET'];
         // Connect database
         $this->db = mysqli_connect( $host, $databaseuser, $password, $databasename);
         // Define encoding UTF-8
