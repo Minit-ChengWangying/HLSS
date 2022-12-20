@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.flex {
+    display: flex;
+}
+.column {
+    flex-direction: column;
+}
+body {
+    background-color: #f0f0f0;
+}
+/* 系统概况 */
+.system-container {
+    height: 100%;
+    display: none;
+}
+.system-container .system-tickets-container {
+    height: 100px;
+    width: 100%;
+    margin-top: 40px;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+.system-tickets-container .system-tickets-item-container {
+    text-align: center;
+    background-color: #fff;
+    margin: 0 30px 0 30px;
+    padding: 0 20px 0 20px;
+    justify-content: center;
+    border-radius: 5px;
+}
+.system-tickets-item-container .systemTicketsNumber {
+    font-size: 3em;
+}
+.system-tickets-item-container .systemTicketsTitle {
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+.system-container .system-user-container {
+    height: 110px;
+    margin-top: 30px;
+    background-color: #fff;
+    /* border: 1px solid red; */
+}
+.system-container .system-user-item-container {
+    /* border: 1px solid red; */
+    align-items: center;
+    margin-left: 100px;
+    border: 1px solid #48a3ff;
+}
+.system-user-item-container .system-user-item-icon-container {
+    /* border: 1px solid red; */
+    height: 100%;
+    align-items: center;
+    padding: 0 25px 0 25px;
+    background-color: #48a3ff;
+}
+.system-user-item-icon-container .systemUserItemIcon {
+    font-size: 4em;
+}
+.system-user-item-container .systemUserItemNumber {
+    font-size: 3.5em;
+    margin: 0 10px 0 10px;
+    border-left: none;
+}
+/* 罚单管理 */
+.tickets-container {
+    height: 100%;
+    width: 98%;
+    margin: 0 auto;
+}
+.tickets-container .tickets-search-container {
+    /* border: 1px solid red; */
+    justify-content: center;
+    margin-top: 40px;
+}
+.tickets-search-container .ticketsSearchInput {
+    width: 70%;
+}
+.tickets-search-container .ticketsSearchButton {
+    padding: 0 20px 0 20px;
+    margin-left: 30px;
+}
+.tickets-container .tickets-table-container {
+    margin-top: 10px;
+}
+.tickets-table-container .ticketsTable {
+    width: 100%;
+}

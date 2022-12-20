@@ -31,12 +31,9 @@ class user_login {
      * version: 202211052238
      * @return Username
      */
-    public function getUsername () {
-        if (isset($_COOKIE['Username'])) {
-            return $_COOKIE['Username'];
-        } else {
-            return 'Err!!!';
-        }
+    public static function getUsername () {
+        $Username = isset($_SESSION['loginState'])?trim($_SESSION['loginState']):'NULL';
+        return $Username;
     }
 
     /**

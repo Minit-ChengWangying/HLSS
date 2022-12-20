@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.flex {
+    display: flex;
+}
+.column {
+    flex-direction: column;
+}
+body {
+    background-color: #f0f0f0;
+}
+.content-container {
+    width: 98vw;
+    margin: 10px auto;
+}
+.content-container .console-container {
+    width: 100%;
+    padding: 20px 0 30px 15px;
+    background-color: #fff;
+    align-items: center;
+    /* border: 1px solid red; */
+    display: none;
+}
+.console-container .consoleItemTitleH2 {
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    font-size: 2.1em;
+}
+.console-container .console-item-container {
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    margin: 0 8px 0 8px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+}
+.console-item-container .consoleItemTitle {
+    cursor: pointer;
+}
+.console-item-container .consoleItemTitle:hover {
+    color: #95a5a6;
+}
+.console-item-container .consoleItemNumber {
+    font-size: 3em;
+}
+.console-item-container .consoleItemTitle {
+    font-size: 1.2em;
+    letter-spacing: 3px;
+}
+.content-container .tickets-container {
+    width: 100%;
+    padding: 20px 0 30px 15px;
+    background-color: #fff;
+    align-items: center;
+    /* border: 1px solid red; */
+    display: none;
+}
+.tickets-container .tickets-search-container {
+    /* border: 1px solid red; */
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+}
+.tickets-search-container .ticketsSearchInput {
+    width: 68%;
+    height: 40px;
+    /* font-size: 1.2em; */
+    border: 1px solid #bdc3c7;
+}
+.tickets-search-container .ticketsSearchButton {
+    letter-spacing: 3px;
+    margin-left: 20px;
+    height: 40px;
+    /* font-size: 1em; */
+}
+.tickets-container .tickets-info-container {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 22px;
+}
+.tickets-info-container .tickets-info-select-container {
+    margin-left: 10px;
+}
+.tickets-info-container .tickets-table-container {
+    padding-right: 15px;
+}
+.content-container .union-container {
+    width: 100%;
+    padding: 20px 15px 30px 15px;
+    background-color: #fff;
+    align-items: center;
+    /* border: 1px solid red; */
+    display: none;
+}
+.union-container .unionScoreTitle {
+    letter-spacing: 3px;
+}
+.union-container .union-score-container {
+    /* border: 1px solid red; */
+    width: 100%;
+}
+.union-container .union-reason-container {
+    /* border: 1px solid red; */
+    width: 100%;
+    align-items: center;
+    background-color: #ecf0f1;
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+.union-reason-container .union-reason-item-container {
+    margin: 5px 0 0 0;
+    font-size: 1.1em;
+}
+.union-reason-item-container p {
+    margin: 0 15px 0 15px;
+}
+.content-container .sleep-container {
+    width: 100%;
+    padding: 20px 15px 30px 15px;
+    background-color: #fff;
+    align-items: center;
+    /* border: 1px solid red; */
+    display: none;
+}

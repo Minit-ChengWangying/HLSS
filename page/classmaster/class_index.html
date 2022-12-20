@@ -1,12 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=NULL">
+        <link rel="shortcut icon" href="../../src/lq/favicon.ico" type="image/x-icon">
+        <title>新乡县龙泉高中 - 班级管理</title>
+        <link href="../../layui/css/layui.css" rel="stylesheet">
+        <link rel="stylesheet" href="../config/index.css">
+        <link rel="stylesheet" href="../css/class_index.css">
+        <link rel="stylesheet" href="../config/minitPopup.css">
+    </head>
+    <body>
+        <div class="minit-popup-container" id="minitPopUp"></div>
+        <input type="hidden" id="auth" value="class">
+        <!-- 导航栏 -->
+        <ul class="layui-nav">
+            <li class="layui-nav-item" id="consolemodule">
+                <a href="class_index.html?page=consolemodule" id="nav-console">控制台</a>
+            </li>
+            <li class="layui-nav-item" id="ticketsmodule">
+                <a href="class_index.html?page=ticketsmodule" id="nav-tickets">罚单</a>
+            </li>
+            <li class="layui-nav-item" id="studentunion">
+                <a href="class_index.html?page=studentunion" id="nav-union">学生会</a>
+            </li>
+            <li class="layui-nav-item" id="sleepmodule">
+                <a href="class_index.html?page=sleepmodule" id="nav-sleep">寝室</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript::"><img src="../../src/public/user.png" class="layui-nav-img"><span id="AccountName"></span></a>
+                <dl class="layui-nav-child">
+                    <dd><a href="../update/update_password_web.php" target="_blank">修改密码</a></dd>
+                    <dd><a href="javascript:;" onclick="Quit_index();">退出登录</a></dd>
+                </dl>
+            </li>
+        </ul>
+
+        <!-- 内容 -->
+        <div class="content-container flex shadow">
+            <!-- 控制台 -->
+            <div class="console-container flex column" id="consolemodule-container">
+                <h2 class="consoleItemTitleH2">班级概况</h2>
+                <div class="console-item flex">
+                    <div class="console-item-container flex column">
+                        <p class="consoleItemNumber" id="consoleNewTicketsNumber">NULL</p>
+                        <p class="consoleItemTitle">新增罚单</p>
+                    </div>
+                    <div class="console-item-container flex column">
+                        <p class="consoleItemNumber" id="consoleNewMajorTicketsNumber">NULL</p>
+                        <p class="consoleItemTitle">新增重大违纪罚单</p>
+                    </div>
+                    <div class="console-item-container flex column">
+                        <p class="consoleItemNumber" id="weekTicketsNumber">NULL</p>
+                        <p class="consoleItemTitle">本周罚单</p>
+                    </div>
+                    <div class="console-item-container flex column">
+                        <p class="consoleItemNumber" id="weekMajorTicketsNumber">NULL</p>
+                        <p class="consoleItemTitle">本周重大违纪罚单</p>
+                    </div>
+                    <div class="console-item-container flex column">
+                        <p class="consoleItemNumber" id="ticketsNumber">NULL</p>
+                        <p class="consoleItemTitle">学期罚单</p>
+                    </div>
+                    <div class="console-item-container flex column">
+                        <p class="consoleItemNumber" id="majorTicketsNumber">NULL</p>
+                        <p class="consoleItemTitle">学期重大违纪罚单</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 罚单 -->
+            <div class="tickets-container flex column" id="ticketsmodule-container">
+                <div class="tickets-search-container flex">
+                    <input type="text" required lay-verify="required" placeholder="请输入查询内容" autocomplete="off" id="ticketsSearchInput" class="layui-input ticketsSearchInput">
+                    <button class="layui-btn ticketsSearchButton" id="ticketsSearchButton" lay-submit>查询</button>
+                </div>
+                <div class="tickets-info-container flex column">
+                    <div class="tickets-info-select-container flex">
+                        <form class="layui-form" action="">
+                            <select name="ticketstype" id="ticketsSelect" lay-filter="ticketstype" lay-verify="required">
+                                <option value="weektickets">本周罚单</option>
+                                <option value="weekmajortickets">本周重大违纪</option>
+                                <option value="tickets">学期罚单</option>
+                                <option value="majortickets">学期重大违纪</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="tickets-table-container flex">
+                        <table class="layui-table">
+                            <thead>
+                                <tr>
+                                    <th>学生姓名</th>
+                                    <th>原因</th>
+                                    <th>开单教师</th>
+                                    <th>学生班级</th>
+                                    <th>扣除分数</th>
+                                    <th>开单时间</th>
+                                    <th>罚单编号</th>
+                                    <th>罚单类型</th>
+                                </tr> 
+                            </thead>
+                            <tbody id="ticketList">
+                                <tr>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                    <td id="">NULL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- 学生会 -->
+            <div class="union-container flex column" id="studentunion-container">
+                <h2 class="unionScoreTitle">学生会体育部分数</h2>
+                <div class="union-score-container flex column">
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th>旗手</th>
+                                <th>队列</th>
+                                <th>口号</th>
+                                <th>总分</th>
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="moduleStandardBearer">NULL</td>
+                                <td id="moduleQueue">NULL</td>
+                                <td id="moduleSlogan">NULL</td>
+                                <td id="modulesportScore">NULL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 class="unionScoreTitle">学生会卫生部分数</h2>
+                <div class="union-score-container flex">
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th>清洁区</th>
+                                <th>教室</th>
+                                <th>总分</th>
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="modulearea">NULL</td>
+                                <td id="moduleclass">NULL</td>
+                                <td id="modulehygieneScore">NULL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 class="unionScoreTitle">学生会体育部扣分原因</h2>
+                <div id="unionSportReason" class="union-reason-container flex column">
+                </div>
+                <h2 class="unionScoreTitle" style="margin-top: 10px;">学生会卫生部扣分原因</h2>
+                <div id="unionHygieneList" class="union-reason-container flex column">
+                </div>
+            </div> 
+            <!-- 寝室 -->
+            <div class="sleep-container flex column" id="sleepmodule-container">
+                <h2 class="sleepTitle">本周优寝</h2>
+                <table class="layui-table">
+                    <thead>
+                        <tr>
+                            <th>寝室编号</th>
+                            <th>寝室班级</th>
+                            <th>上报时间</th>
+                            <th>寝室类型</th>
+                            <th>上报寝管</th>
+                        </tr> 
+                    </thead>
+                    <tbody id="goodSleep">
+                        <tr>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2 class="sleepTitle">本周差寝</h2>
+                <table class="layui-table">
+                    <thead>
+                        <tr>
+                            <th>寝室编号</th>
+                            <th>寝室班级</th>
+                            <th>上报时间</th>
+                            <th>寝室类型</th>
+                            <th>上报寝管</th>
+                        </tr> 
+                    </thead>
+                    <tbody id="badSlepp">
+                        <tr>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                            <td id="">NULL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../layui/layui.js"></script>
+        <script src="../config/minitPopup.js"></script>
+        <script src="../devhelp/loginState.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/nav.js"></script>
+        <script>
+            // Browser
+            if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))){
+                window.location = "../index/index.html";
+            } else{
+                console.log("PC");
+            }
+            // get GET value
+            function getUrlParam(paramName){
+                var reg = new RegExp("(^|&)"+ paramName +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r!=null) return unescape(r[2]);
+                return null;
+            }
+            var param = getUrlParam('page');
+            document.getElementById(param).className = 'layui-nav-item layui-this';
+            document.getElementById(param+'-container').style.display = "flex";
+            eval(param + '()');
+
+            layui.use(['layer', 'form'], function(){
+                var layer = layui.layer;
+                var form = layui.form;
+                
+                layer.msg('欢迎登录');
+            });
+            layui.use('form', function(){
+                var form = layui.form;
+                
+            });
+        </script> 
+    </body>
 </html>

@@ -1,19 +1,28 @@
-// 获取登录状态
-function loginState () {
+// Qiut Login
+function Quit() {
     $.ajax({
         type:"get",
-        url:"../../../system/module/Account/detectionLogin.php",
-        data:{'code':1000},
-        success:function(Info) {
-            var Info = JSON.parse(Info);
-            if (Info == 'Flase') {
-                alert('登陆超时，请重新登录');
-                window.location = '../login.html';
-            }
-            if (Info == 'True') {
-                console.log('登录成功');
-            }
+        url:"../../system/module/Account/quit.php",
+        success:function(data) {
+            var data = JSON.parse(data);
+            console.log(data);
+            location.reload(false);
         }
     });
 }
-loginState();
+// Login detection
+$.get('../../../system/module/Account/loginState.php',function(data) {
+    if(data == false) {
+        alert('登录状态过期，请重新登录');
+        window.location = "../../index.php";
+    }   
+},"json");
+// Auth detection
+var auth = document.getElementById('auth').value;
+$.get('../../../system/module/Account/UserAuth.php',{'auth':auth},function(data) {
+    if(data == false) {
+        alert('您的账号无权访问此内容!');
+        Quit();
+    }
+},"json");
+

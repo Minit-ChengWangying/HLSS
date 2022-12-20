@@ -12,7 +12,7 @@ class Auth {
         return $_SESSION['loginState'];
     }
     private static function queryLimit($Limit) {
-        self::$SQL = "select * from user where username = ".self::getUsername()." AND limits like '%$Limit%';";
+        self::$SQL = "select * from user where username = '".self::getUsername()."' AND limits like '%$Limit%';";
         self::$queryResult = self::db()->query(self::$SQL)->fetch_array( MYSQLI_ASSOC );
         if(self::$queryResult == NULL) {
             die("<script>alert('请申请管理员访问!')</script>");

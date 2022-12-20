@@ -32,10 +32,10 @@ $Login = new user_login;
                     <p class="inputTitle">旧密码:</p><input type="text" id="oldPassword" class="minit-input" placeholder="请输入旧密码">
                 </div>
                 <div class="form-input-container topMargin flex">
-                    <p class="inputTitle">新密码:</p><input type="password" id="newPassword" class="minit-input" placeholder="请输入旧密码">
+                    <p class="inputTitle">新密码:</p><input type="password" id="newPassword" class="minit-input" placeholder="请输入新密码">
                 </div>
                 <div class="form-input-container topMargin flex">
-                    <p class="inputTitle">请确认:</p><input type="password" id="confirmPassword" class="minit-input" placeholder="请输入旧密码">
+                    <p class="inputTitle">请确认:</p><input type="password" id="confirmPassword" class="minit-input" placeholder="请再次输入新密码">
                 </div>
                 <div class="form-input-container topMargin flex">
                     <button id="submit">提交</button>

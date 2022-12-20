@@ -33,7 +33,7 @@ $a = 1;
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../../src/lq/favicon.ico" rel="shortcut icon">
-        <title>新乡县龙泉高中 - 政教处</title>
+        <title>新乡县龙泉高中 - 政教管理</title>
         <link rel="stylesheet" href="../../layui/css/layui.css">
         <link rel="stylesheet" href="../css/politicsindex.css">
         <link rel="stylesheet" href="../config/index.css">
@@ -58,7 +58,7 @@ $a = 1;
                 <a href="javascript:;"><img src="
 https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public/user.png" class="layui-nav-img"><?php echo $teacherName; ?></a>
                 <dl class="layui-nav-child">
-                    <dd><a href="../update/update_password_web.php">修改密码</a></dd>
+                    <dd><a href="../update/update_password_web.php" target="_blank">修改密码</a></dd>
                     <dd><a href="javascript:;" id="Settlement">一键结算</a></dd>
                     <dd><a href="javascript:;" onclick="Quit();">退出登录</a></dd>
                 </dl>
@@ -94,31 +94,31 @@ https://minitbeijingproduction.oss-cn-beijing.aliyuncs.com/LHSS/resources/public
                         </select>
                     </form>
                     <table class="layui-table classModuleTable">
-                            <thead>
-                                <tr>
-                                    <th>学生姓名</th>
-                                    <th>原因</th>
-                                    <th>开单教师</th>
-                                    <th>学生班级</th>
-                                    <th>扣除分数</th>
-                                    <th>开单时间</th>
-                                    <th>罚单编号</th>
-                                    <th>罚单类型</th>
-                                </tr> 
-                            </thead>
-                            <tbody id="classModuleTicketsTable">
-                                <tr>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <thead>
+                            <tr>
+                                <th>学生姓名</th>
+                                <th>原因</th>
+                                <th>开单教师</th>
+                                <th>学生班级</th>
+                                <th>扣除分数</th>
+                                <th>开单时间</th>
+                                <th>罚单编号</th>
+                                <th>罚单类型</th>
+                            </tr> 
+                        </thead>
+                        <tbody id="classModuleTicketsTable">
+                            <tr>
+                                <td id="">NULL</td>
+                                <td id="">NULL</td>
+                                <td id="">NULL</td>
+                                <td id="">NULL</td>
+                                <td id="">NULL</td>
+                                <td id="">NULL</td>
+                                <td id="">NULL</td>
+                                <td id="">NULL</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="classModule-union-container flex cloumn">
                     <div class="classModule-score-container flex cloumn">
