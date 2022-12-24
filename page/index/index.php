@@ -16,7 +16,7 @@ $version = $data['version'];
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>快捷访问</title>
+        <title>新乡县龙泉高中 - 快捷访问</title>
         <link href="../../src/lq/favicon.ico" rel="shortcut icon">
         <link href="../../layui/css/layui.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/index.css">

@@ -30,6 +30,8 @@ body {
     padding: 0 20px 0 20px;
     justify-content: center;
     border-radius: 5px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .system-tickets-item-container .systemTicketsNumber {
     font-size: 3em;
@@ -70,6 +72,7 @@ body {
     height: 100%;
     width: 98%;
     margin: 0 auto;
+    display: none;
 }
 .tickets-container .tickets-search-container {
     /* border: 1px solid red; */
@@ -88,4 +91,102 @@ body {
 }
 .tickets-table-container .ticketsTable {
     width: 100%;
+}
+/* 学生会 */
+.union-container {
+    height: 100%;
+    display: none;
+}
+.union-container .unionTitle {
+    margin: 30px 0 0 20px;
+}
+/* 寝室管理 */
+.sleep-container {
+    display: none;
+}
+.sleep-container .sleepTitle {
+    margin: 30px 0 0 20px;
+}
+/* 普通用户管理 */
+.user-container {
+    display: none;
+}
+/* 班主任账户管理 */
+.classmaster-container {
+    display: none;
+}
+/* 用户注册 */
+.register-container {
+    height: 100%;
+    padding: 10px 0 0 0;
+    display: none;
+}
+.register-container .registerTitle {
+    letter-spacing: 2px;
+    font-size: 2em;
+    margin-left: 35px;
+    white-space: nowrap;
+}
+.register-container .registerUserForm {
+    width: 80%;
+    margin: 10px 0 20px 0;
+}
+/* 班级管理 */
+.class_control-container {
+    display: none;
+}
+/* 班级注册 */
+.class_register-container {
+    height: 100%;
+    width: 60%;
+    padding: 10px 0 0 0;
+    display: none;
+}
+.class_register-container .classRegisterTitle {
+    letter-spacing: 2px;
+    font-size: 2em;
+    margin-left: 35px;
+    white-space: nowrap;
+}
+.class_register-container .classRegister {
+    width: 100%;
+    margin-top: 10px;
+}
+.class_register-container .class_register-operation-container {
+    display: none;
+}
+.class_register-container .class_register-change-container {
+    display: none;
+}
+.class_register-container .class_register-bonus-container {
+    display: none;
+}
+/* 系统信息 */
+.system_info-container {
+    height: 100%;
+    padding: 10px 0 0 15px;
+    display: none;
+}
+.system_info-container .system_info_title {
+    letter-spacing: 2px;
+    font-size: 2em;
+    white-space: nowrap;
+}
+.system_info-container .systemInfoTable {
+    width: 50%;
+    margin-bottom: 30px;
+}
+/* 开发团队 */
+.team-container {
+    display: none;
+}
+.team-container .teamMinitLogo {
+    width: 100%;
+    margin: 10px 5px 10px 5px;
+    border-radius: 10px;
+}
+.team-container .teamRow {
+    margin: 0 10px 0 10px;
+    text-align: center;
+    font-size: 1.5em;
 }

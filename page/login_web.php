@@ -13,7 +13,7 @@ if (isset($_SESSION['loginState'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../src/lq/favicon.ico" rel="shortcut icon">
     <link href="../src/lq/favicon.ico" rel="shortcut icon">
-    <title>龙泉高中学分管理系统 - 系统登录</title>
+    <title>新乡县龙泉高中 - 系统登录</title>
     <link rel="stylesheet" href="css/login_web.css">
     <link rel="stylesheet" href="config/index.css">
 </head>

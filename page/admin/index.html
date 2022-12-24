@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="../css/admin_index.css">
     </head>
     <body>
+        <input type="hidden" value="admin" id="auth">
         <!-- 水平导航栏 -->
         <div class="layui-layout layui-layout-admin">
             <div class="layui-header">
@@ -26,7 +27,7 @@
                         <span id="Username">超级管理员</span>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="../update/update_password_web.php">修改密码</a></dd>
+                        <dd><a href="../update/update_password_web.php" target="_blank">修改密码</a></dd>
                         <dd><a href="javascript:;" onclick="Quit();">退出登录</a></dd>
                     </dl>
                 </li>
@@ -36,57 +37,69 @@
             <div class="layui-side layui-bg-black">
                 <div class="layui-side-scroll">
                     <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                        <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">业务管理</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" class="layui-this">系统概况</a></dd>
-                            <dd><a href="javascript:;">罚单管理</a></dd>
-                            <dd><a href="javascript:;">学生会管理</a></dd>
-                            <dd><a href="javascript:;">寝室管理</a></dd>
-                        </dl>
+                        <li class="layui-nav-item" id="service">
+                            <a href="javascript:;">业务管理</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="javascript:;" id="system">系统概况</a></dd>
+                                <dd><a href="javascript:;" id="tickets">罚单管理</a></dd>
+                                <dd><a href="javascript:;" id="union">学生会管理</a></dd>
+                                <dd><a href="javascript:;" id="sleep">寝室管理</a></dd>
+                            </dl>
                         </li>
-                        <li class="layui-nav-item">
-                        <a href="javascript:;">用户管理</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">普通用户管理</a></dd>
-                            <dd><a href="javascript:;">班主任管理</a></dd>
-                            <dd><a href="javascript:;">权限管理</a></dd>
-                        </dl>
+                        <li class="layui-nav-item" id="user">
+                            <a href="javascript:;">用户管理</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="javascript:;" id="user_common">普通用户管理</a></dd>
+                                <dd><a href="javascript:;" id="classmaster">班主任管理</a></dd>
+                                <dd><a href="javascript:;" id="register">用户注册</a></dd>
+                            </dl>
                         </li>
-                        <li class="layui-nav-item"><a href="javascript:;">系统信息</a></li>
-                        <li class="layui-nav-item"><a href="">软件开发团队</a></li>
+                        <li class="layui-nav-item" id="class">
+                            <a href="javascript:;">班级管理</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="javascript:;" id="class_control">班级管理</a></dd>
+                                <dd><a href="javascript:;" id="class_register">班级注册</a></dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item" id="other">
+                            <a href="javascript:;">其他</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="javascript:;" id="system_info">系统信息</a></dd>
+                                <dd><a href="javascript:;" id="team">软件开发团队</a></dd>
+                            </dl>
+                        </li>
                     </ul>
                 </div>
             </div>
             <!-- 内容 -->
             <div class="layui-body">
                 <!-- 系统概况 -->
-                <div class="system-container flex column">
+                <div class="system-container flex column" id="system-container">
                     <!-- 罚单信息 -->
                     <div class="system-tickets-container flex">
                         <div class="system-tickets-item-container flex column shadow">
-                            <p class="systemTicketsNumber">0</p>
-                            <a href="javascript:;"><p class="systemTicketsTitle" id="newTickets">新增罚单</p></a>
+                            <p class="systemTicketsNumber" id="newTickets">NULL</p>
+                            <a href="javascript:;"><p class="systemTicketsTitle">新增罚单</p></a>
                         </div>
                         <div class="system-tickets-item-container flex column shadow">
-                            <p class="systemTicketsNumber">0</p>
-                            <a href="javascript:;"><p class="systemTicketsTitle" id="newMajorTickets">新增重大违纪</p></a>
+                            <p class="systemTicketsNumber" id="newMajorTickets">NULL</p>
+                            <a href="javascript:;"><p class="systemTicketsTitle">新增重大违纪</p></a>
                         </div>
                         <div class="system-tickets-item-container flex column shadow">
-                            <p class="systemTicketsNumber">0</p>
-                            <a href="javascript:;"><p class="systemTicketsTitle" id="weekTickets">本周罚单</p></a>
+                            <p class="systemTicketsNumber" id="weekTickets">NULL</p>
+                            <a href="javascript:;"><p class="systemTicketsTitle">本周罚单</p></a>
                         </div>
                         <div class="system-tickets-item-container flex column shadow">
-                            <p class="systemTicketsNumber">0</p>
-                            <a href="javascript:;"><p class="systemTicketsTitle" id="weekMajorTickets">本周重大违纪</p></a>
+                            <p class="systemTicketsNumber" id="weekMajorTickets">NULL</p>
+                            <a href="javascript:;"><p class="systemTicketsTitle">本周重大违纪</p></a>
                         </div>
                         <div class="system-tickets-item-container flex column shadow">
-                            <p class="systemTicketsNumber">0</p>
-                            <a href="javascript:;"><p class="systemTicketsTitle" id="tickets">学期罚单</p></a>
+                            <p class="systemTicketsNumber" id="ticketsNumber">NULL</p>
+                            <a href="javascript:;"><p class="systemTicketsTitle">学期罚单</p></a>
                         </div>
                         <div class="system-tickets-item-container flex column shadow">
-                            <p class="systemTicketsNumber">0</p>
-                            <a href="javascript:;"><p class="systemTicketsTitle" id="majorTickets">学期重大违纪</p></a>
+                            <p class="systemTicketsNumber" id="majorTicketsNumber">NULL</p>
+                            <a href="javascript:;"><p class="systemTicketsTitle">学期重大违纪</p></a>
                         </div>
                     </div>
                     <!-- 用户信息 -->
@@ -95,56 +108,322 @@
                             <div class="system-user-item-icon-container flex">
                                 <i class="layui-icon layui-icon-username systemUserItemIcon"></i> 
                             </div>
-                            <a href="javascript:;"><p class="systemUserItemNumber" id="userNumber">100</p></a>
+                            <a href="javascript:;"><p class="systemUserItemNumber" id="userNumber">NULL</p></a>
                         </div>
                         <div class="system-user-item-container flex">
                             <div class="system-user-item-icon-container flex">
                                 <i class="layui-icon layui-icon-friends systemUserItemIcon"></i> 
                             </div>
-                            <a href="javascript:;"><p class="systemUserItemNumber" id="classMasterNumber">100</p></a>
+                            <a href="javascript:;"><p class="systemUserItemNumber" id="classMasterNumber">NULL</p></a>
                         </div>
                     </div>
                 </div>
                 <!-- 罚单管理 -->
-                <div class="tickets-container flex column">
+                <div class="tickets-container flex column" id="tickets-container">
                     <!-- 搜索框 -->
                     <div class="tickets-search-container flex">
                         <input type="text" required  lay-verify="required" placeholder="请输入学生名称" autocomplete="off" class="layui-input ticketsSearchInput shadow" id="ticketsSearchInput">
                         <button class="layui-btn ticketsSearchButton shadow" lay-submit lay-filter="formDemo" id="ticketsSearchButton">查询</button>
                     </div>
                     <div class="tickets-table-container flex">
-                        <table class="layui-table ticketsTable" id="ticketsTable" lay-filter="tickets">
-                            <!-- <thead>
-                                <tr>
-                                    <th>学生姓名</th>
-                                    <th>原因</th>
-                                    <th>开单教师</th>
-                                    <th>学生班级</th>
-                                    <th>扣除分数</th>
-                                    <th>开单时间</th>
-                                    <th>罚单编号</th>
-                                    <th>罚单类型</th>
-                                </tr> 
-                            </thead>
-                            <tbody id="classModuleTicketsTable">
-                                <tr>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                    <td id="">NULL</td>
-                                </tr>
-                            </tbody> -->
-                        </table>
+                        <table class="layui-table ticketsTable shadow" id="ticketsTable" lay-filter="tickets"></table>
+                    </div>
+                </div>
+                <!-- 学生会 -->
+                <div class="union-container flex column" id="union-container">
+                    <h2 class="unionTitle">学生会体育部</h2>
+                    <table class="layui-table unionSportTable shadow" id="unionSportTable" lay-filter="unionSport"></table>
+                    <h2 class="unionTitle">学生会卫生部</h2>
+                    <table class="layui-table unionHygieneTable shadow" id="unionHygieneTable" lay-filter="unionHygiene"></table>
+                </div>
+                <!-- 寝室管理 -->
+                <div class="sleep-container flex column" id="sleep-container">
+                    <h2 class="sleepTitle">优寝</h2>
+                    <table class="layui-table sleepGoodTable shadow" id="goodSleep" lay-filter="goodSleep"></table>
+                    <h2 class="sleepTitle">差寝</h2>
+                    <table class="layui-table sleepBadTable shadow" id="badSleep" lay-filter="badSleep"></table>
+                </div>
+                <!-- 普通用户管理 -->
+                <div class="user-container flex column" id="user_common-container">
+                    <table class="layui-table userTable shadow" id="userTable" lay-filter="userTable"></table>
+                </div>
+                <!-- 班主任账户管理 -->
+                <div class="classmaster-container flex column" id="classmaster-container">
+                    <table class="layui-table classMasterTable shadow" id="classMasterTable" lay-filter="classMasterTable"></table>
+                </div>
+                <!-- 用户注册 -->
+                <div class="register-container flex column" id="register-container">
+                    <h2 class="registerTitle">用户注册</h2>
+                    <div class="register-user-container flex column">
+                        <form  class="layui-form registerUserForm" action="../../system/module/Account/register.php" method="post">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">账号</label>
+                                <div class="layui-input-block">
+                                    <input type="text" id="registerUsername" name="username" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">教师名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" id="registerTeacherName" name="teachername" required  lay-verify="required" placeholder="请输入教师名称" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">账户类型</label>
+                                <div class="layui-input-block">
+                                    <select id="AccountType" name="accounttype" lay-verify="required" lay-filter="registerAccountType">
+                                        <option value="common">普通账户</option>
+                                        <option value="classmaster">班主任账户</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">账户分支</label>
+                                <div class="layui-input-block">
+                                    <select id="AccountBranch" name="branch" lay-verify="required">
+                                        <option value="teacher">教学楼</option>
+                                        <option value="politics">政教处</option>
+                                        <option value="unionsport">学生会体育部</option>
+                                        <option value="unionhygene">学生会卫生部</option>
+                                        <option value="sleep">寝室</option>
+                                        <option value="classmaster">班主任</option>
+                                        <option value="admin">系统管理</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">账户权限</label>
+                                <div class="layui-input-block">
+                                    <input type="checkbox" name="Limits[]" value="recordTicket" title="罚单">
+                                    <input type="checkbox" name="Limits[]" value="union" title="学生会">
+                                    <input type="checkbox" name="Limits[]" value="sleep" title="寝室">
+                                    <input type="checkbox" name="Limits[]" value="class" title="班主任">
+                                    <input type="checkbox" name="Limits[]" value="politics" title="政教">
+                                    <input type="checkbox" name="Limits[]" value="admin" title="系统管理员">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">账号班级</label>
+                                <div class="layui-input-block">
+                                    <input type="text" id="AccountClass" name="class" placeholder="请输入账号班级" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 班级管理 -->
+                <div class="class_control-container flex column" id="class_control-container">
+                    <table class="layui-table classControlTable shadow" id="classControlTable" lay-filter="classControlTable"></table>
+                </div>
+                <!-- 班级注册 -->
+                <div class="class_register-container flex column" id="class_register-container">
+                    <h2 class="classRegisterTitle">班级注册</h2>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">操作类型</label>
+                        <div class="layui-input-block">
+                            <form class="layui-form classRegister">
+                                <select id="classRegisterOperationType" lay-verify="required" lay-filter="class_register_operation_type">
+                                    <option value="class_register_container">班级注册</option>
+                                    <option value="class_change">班级更改</option>
+                                    <option value="class_bonus_points">班级改分</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="class_register-operation-container flex column" id="class_register_container">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">班级编号</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="class_register_number" placeholder="请输入班级编号" class="layui-input">
+                            </div>
+                        </div> 
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" id="class_register_button">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class_register-change-container flex column" id="class_change">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">班级编号</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="class_register_change_number" placeholder="请输入班级编号" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">班主任账号</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="class_register_change_master" placeholder="请输入更改班主任账号" class="layui-input">
+                            </div>
+                        </div>  
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" id="class_change_button">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class_register-bonus-container flex column" id="class_bonus_points">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">班级编号</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="class_register_bonus_number" placeholder="请输入班级编号" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">分数</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="class_register_bonus_master" placeholder="请输入修改分数" class="layui-input">
+                            </div>
+                        </div>  
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" id="class_bonus_button">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 系统信息 -->
+                <div class="system_info-container flex column" id="system_info-container">
+                    <h2 class="system_info_title">系统信息</h2>
+                    <table class="layui-table systemInfoTable" id="systemInfoTable" lay-even lay-skin="row">
+                        <thead>
+                            <tr>
+                                <th>服务名称</th>
+                                <th>服务信息</th>
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>服务器系统</td>
+                                <td id="php_os"></td>
+                            </tr>
+                            <tr>
+                                <td>服务器访问地址</td>
+                                <td id="http_host"></td>
+                            </tr>
+                            <tr>
+                                <td>服务器名称</td>
+                                <td id="server_name"></td>
+                            </tr>
+                            <tr>
+                                <td>服务器端口</td>
+                                <td id="server_port"></td>
+                            </tr>
+                            <tr>
+                                <td>服务器地址</td>
+                                <td id="server_addr"></td>
+                            </tr>
+                            <tr>
+                                <td>服务器软件</td>
+                                <td id="server_software"></td>
+                            </tr>
+                            <tr>
+                                <td>站点目录</td>
+                                <td id="document_root"></td>
+                            </tr>
+                            <tr>
+                                <td>PHP版本</td>
+                                <td id="php_version"></td>
+                            </tr>
+                            <tr>
+                                <td>最大上传</td>
+                                <td id="upload_max"></td>
+                            </tr>
+                            <tr>
+                                <td>最大提交</td>
+                                <td id="post_max"></td>
+                            </tr>
+                            <tr>
+                                <td>最大提交文件数</td>
+                                <td id="file_max"></td>
+                            </tr>
+                            <tr>
+                                <td>内存限制</td>
+                                <td id="memory_limit"></td>
+                            </tr>
+                            <tr>
+                                <td>GD扩展</td>
+                                <td id="gd"></td>
+                            </tr>
+                            <tr>
+                                <td>IMAP扩展</td>
+                                <td id="imap"></td>
+                            </tr>
+                            <tr>
+                                <td>SOCKET扩展</td>
+                                <td id="socket"></td>
+                            </tr>
+                            <tr>
+                                <td>CURL扩展</td>
+                                <td id="curl"></td>
+                            </tr>
+                            <tr>
+                                <td>会话保存路径</td>
+                                <td id="session_path"></td>
+                            </tr>
+                            <tr>
+                                <td>Standard是否存在</td>
+                                <td id="standard"></td>
+                            </tr>
+                            <tr>
+                                <td>多线程支持</td>
+                                <td id="pthreads"></td>
+                            </tr>
+                            <tr>
+                                <td>XCache支持</td>
+                                <td id="xcache"></td>
+                            </tr>
+                            <tr>
+                                <td>APC支持</td>
+                                <td id="apc"></td>
+                            </tr>
+                            <tr>
+                                <td>eAccelerator支持</td>
+                                <td id="eaccelerator"></td>
+                            </tr>
+                            <tr>
+                                <td>wincache支持</td>
+                                <td id="wincache"></td>
+                            </tr>
+                            <tr>
+                                <td>ZendOPcache支持</td>
+                                <td id="zendopcache"></td>
+                            </tr>
+                            <tr>
+                                <td>memcache支持</td>
+                                <td id="memcache"></td>
+                            </tr>
+                            <tr>
+                                <td>memcached支持</td>
+                                <td id="memcached"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="team-container flex column" id="team-container">
+                    <img src="../../src/minit/team_logo.png" alt="MinitLogo" class="teamMinitLogo shadow">
+                    <div class="layui-row layui-col-space15 teamRow">
+                        <div class="layui-col-md6">
+                            <div class="layui-panel shadow">
+                                <div style="padding: 30px;">精打实干 | 精益求精</div>
+                            </div>   
+                        </div>
+                        <div class="layui-col-md6">
+                            <div class="layui-panel shadow">
+                                <div style="padding: 30px;">创建美好互联网环境</div>
+                            </div>   
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- 底部 -->
             <div class="layui-footer">
-                Minit Software | 新乡县龙泉高级中学 @LHSS
+                Jiangxi Minit Software | 新乡县龙泉高级中学 @LHSS
             </div>
         </div>
 
@@ -153,6 +432,8 @@
         <script src="../../layui/layui.js"></script>
         <script src="../devhelp/loginState.js"></script>
         <script src="js/ajax.js"></script>
+        <script src="js/nav.js"></script>
+        <script src="js/register.js"></script>
         <script>
             layui.use(['layer', 'form'], function(){
                 var layer = layui.layer;
@@ -160,29 +441,23 @@
                 
                 layer.msg('欢迎登录');
             });
-            layui.use('table', function(){
-            var table = layui.table;
-            
-            //第一个实例
-            table.render({
-                elem: '#ticketsTable'
-                ,height: 312
-                ,url: '/static/json/table/user.json' //数据接口
-                ,page: true //开启分页
-                ,cols: [[ //表头
-                {field: 'id', title: 'ID', sort: true, fixed: 'left'}
-                ,{field: 'username', title: '用户名'}
-                ,{field: 'sex', title: '性别', sort: true}
-                ,{field: 'city', title: '城市'} 
-                ,{field: 'sign', title: '签名'}
-                ,{field: 'experience', title: '积分', sort: true}
-                ,{field: 'score', title: '评分', sort: true}
-                ,{field: 'classify', title: '职业'}
-                ,{field: 'words', title: '字数', sort: true}
-                ]]
-            });
-            
-            });
+            // 获取GET值
+            function getUrlParam(paramName){
+                var reg = new RegExp("(^|&)"+ paramName +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r!=null) return unescape(r[2]);
+                return null;
+            }
+            var param = getUrlParam('page');
+            var nav = getUrlParam('nav');
+            document.getElementById(param).className = 'layui-this';
+            document.getElementById(nav).className = 'layui-nav-item layui-nav-itemed';
+            document.getElementById(param+'-container').style.display = "flex";
+            eval(param + '()');
+           
         </script> 
+        <script type="text/html" id="toolEventDemo">
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+          </script>
     </body>
 </html>

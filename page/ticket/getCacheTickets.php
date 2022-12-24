@@ -59,7 +59,7 @@ $h = 1;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../src/lq/favicon.ico" rel="shortcut icon">
-    <title>罚单管理</title>
+    <title>新乡县龙泉高中 - 罚单管理</title>
     <link rel="stylesheet" href="../css/getCacheTicket.css">
     <link rel="stylesheet" href="../config/index.css">
 </head>

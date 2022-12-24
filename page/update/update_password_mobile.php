@@ -15,7 +15,7 @@ $Login = new user_login;
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../../src/lq/favicon.ico" rel="shortcut icon">
-        <title>龙泉高中学分管理系统 - 更新密码</title>
+        <title>新乡县龙泉高中 - 更新密码</title>
         <link rel="stylesheet" href="../config/index.css">
         <link rel="stylesheet" href="../css/update_pwd_mobile.css">
     </head>

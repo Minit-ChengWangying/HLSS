@@ -6,7 +6,7 @@ session_start();
 require_once __DIR__ . '/../Mysql/connectMysql.php';
 
 isset($_SESSION['loginState'])?true:die('login error');
-$Limits = empty($_GET['auth'])?'account':trim($_GET['auth']);
+$Limits = empty($_GET['auth'])?'null':trim($_GET['auth']);
 
 $Username = $_SESSION['loginState'];
 

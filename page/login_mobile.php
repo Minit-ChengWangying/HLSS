@@ -14,7 +14,7 @@ if (isset($_SESSION['loginState'])) {
     <link href="../src/lq/favicon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="css/login_mobile.css">
     <link rel="stylesheet" href="config/index.css">
-    <title>龙泉高中学分管理系统 - 系统登录</title>
+    <title>新乡县龙泉高中 - 系统登录</title>
 </head>
 <body>
 
