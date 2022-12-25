@@ -9,9 +9,8 @@ setcookie("TeacherName", '', time()-1, '/');
 setcookie("Branch", '', time()-1, '/');
 setcookie("Index", '', time()-1, '/');
 if (isset($_SESSION['loginState'])) {
-    echo json_encode('Flase');
+    echo 'Fail!';
 } else {
-    echo json_encode('True');
+    echo 'Successful!';
 }
-
 ?>
