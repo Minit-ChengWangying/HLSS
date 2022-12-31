@@ -1,0 +1,19 @@
+{
+    "name": "WangMaixin",
+    "SystemName": "Xinxiang City Longquan High School Credit System",
+    "version": "1.0.0.0001",
+    "host": "服务器地址*",
+    "database": {
+        "HOST": "数据库地址*",
+        "USERNAME": "数据库用户名*",
+        "PASSWORD": "数据库密码*",
+        "DATABASESHEET": "数据库名称*"
+    },
+    "Limits": {
+        "recordTicket": "recordTicket",
+        "getCacheTickets": "recordTicket",
+        "unionindex": "union",
+        "sleepindex": "sleep",
+        "politics": "politics"
+    }
+}

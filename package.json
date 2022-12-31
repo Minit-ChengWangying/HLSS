@@ -4,5 +4,22 @@
   },
   "devDependencies": {
     "gulp-html-import": "^0.0.2"
-  }
+  },
+  "name": "jxminit-hlss",
+  "description": "龙泉高中学分管理系统 V1.0.0.1.0.0\r 改变新乡县龙泉高中旧体制的学分模式，用信息系统代替纸，方便政教处统计学校各个班级的学分情况\r ## 鸣谢单位、个人\r 迷小新乡乡网中心龙泉高中特别项目部\r 达科新乡终端设备制造团队\r 迷小中国乡网中心项目部主管 - 王灿锦\r 迷小新乡乡网中心项目部成员 - 侯万昆\r 迷小新乡美工部主管 - 马海涵\r 达科硬件总负责人 - 史晨翔",
+  "version": "1.0.0",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minit-ChengWangying/HLSS.git"
+  },
+  "author": "Jiangxi Minit Software",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Minit-ChengWangying/HLSS/issues"
+  },
+  "homepage": "https://github.com/Minit-ChengWangying/HLSS#readme"
 }
